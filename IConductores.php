@@ -4,7 +4,7 @@
     $ID=$_REQUEST['ID']; //De esta manera se recibe una variable del formulario de HTML
     $Nombre=$_REQUEST['Nombre'];
     $FechaNacimiento=$_REQUEST['Fecha_Nacimiento'];
-    $Foto=$_REQUEST['Foto'];
+    $Foto=$_FILES['Foto'];
     $Firma=$_REQUEST['Firma'];
     $RFC=$_REQUEST['RFC'];
     $Domicilio=$_REQUEST['Domicilio'];
@@ -12,6 +12,12 @@
     $Donador=$_REQUEST['Donador'];
     $CURP=$_REQUEST['CURP'];
     $IdDireccion=$_REQUEST['ID_Direccion'];
+
+    // Validación imagénes 
+
+    if (isset($_FILES['Foto'])){
+        $
+    }
 
     //Imprimir
     print("ID=" . $ID . "<br>");
@@ -27,7 +33,8 @@
     print("ID Direccion=" . $IdDireccion . "<br>");
 
     // Formar la instrucción SQL -  se van a ocupar las variables anteriores
-    $SQL="INSERT INTO Conductores (ID, Nombre, FechaNacimiento, Foto, Firma, RFC, Domicilio, TipoSangre, Donador, CURP, IDDireccion) VALUES ('$ID', '$Nombre', '$FechaNacimiento', '$Foto', '$Firma', '$RFC', '$Domicilio', '$TipoSangre', '$Donador', '$CURP', '$IdDireccion')";
+    $SQL="INSERT INTO Conductores (ID, Nombre, FechaNacimiento, Foto, Firma, RFC, Domicilio, TipoSangre, Donador, CURP, IDDireccion) 
+    VALUES ('$ID', '$Nombre', '$FechaNacimiento', '$Foto', '$Firma', '$RFC', '$Domicilio', '$TipoSangre', '$Donador', '$CURP', '$IdDireccion')";
     print($SQL);
 
     //CONECTAR CON BASE DE DATOS
