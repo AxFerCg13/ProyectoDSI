@@ -1,30 +1,97 @@
 <?php
 
-    // Recepción de los datos
-    $ID=$_REQUEST['ID']; //De esta manera se recibe una variable del formulario de HTML
-    $Nombre=$_REQUEST['Nombre'];
-    $FechaNacimiento=$_REQUEST['Fecha_Nacimiento'];
-    $Foto=$_FILES['Foto'];
-    $Firma=$_REQUEST['Firma'];
-    $RFC=$_REQUEST['RFC'];
-    $Domicilio=$_REQUEST['Domicilio'];
-    $TipoSangre=$_REQUEST['Tipo_Sangre'];
-    $Donador=$_REQUEST['Donador'];
-    $CURP=$_REQUEST['CURP'];
-    $IdDireccion=$_REQUEST['ID_Direccion'];
+// Recepción de los datos
+$ID = $_POST['ID']; 
+$Nombre = $_POST['Nombre'];
+$FechaNacimiento = $_POST['Fecha_Nacimiento'];
+$RFC = $_POST['RFC'];
+$Domicilio = $_POST['Domicilio'];
+$TipoSangre = $_POST['Tipo_Sangre'];
+$Donador = $_POST['Donador'];
+$CURP = $_POST['CURP'];
+$IdDireccion = $_POST['ID_Direccion'];
 
-    // Validación imagénes 
+// Variables para las imágenes
+$fotoValida = false;
+$firmaValida = false;
 
-    if (isset($_FILES['Foto'])){
-        $
+// Validación de la foto
+if (isset($_FILES["Foto"])) {
+    $file = $_FILES["Foto"];
+    $nombreFoto = $file["name"];
+    $tipoFoto = $file["type"];
+    $ruta_provisionalFoto = $file["tmp_name"];
+    $sizeFoto = $file["size"];
+    $dimensionesFoto = getimagesize($ruta_provisionalFoto);
+    $widthFoto = $dimensionesFoto[0];
+    $heightFoto = $dimensionesFoto[1];
+    $carpetaFoto = "img/fotosConductores/";
+
+    // Lista de tipos permitidos
+    $tiposPermitidos = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+
+    if (in_array($tipoFoto, $tiposPermitidos)) {
+        // Verificar el tamaño (máximo 3MB)
+        if ($sizeFoto <= 3 * 1024 * 1024) { // 3MB en bytes
+            $destinoFoto = $carpetaFoto . $nombreFoto;
+            if (move_uploaded_file($ruta_provisionalFoto, $destinoFoto)) {
+                echo "La foto ha sido subida exitosamente.<br>";
+                $fotoValida = true;
+                $imagenFoto = "img/fotosConductores/" . $nombreFoto;
+            } else {
+                echo "Error al mover la foto.<br>";
+            }
+        } else {
+            echo "Error, el tamaño máximo permitido para la foto es de 3MB.<br>";
+        }
+    } else {
+        echo "Error, la foto no es una imagen válida.<br>";
     }
+} else {
+    echo "No se ha seleccionado ninguna foto.<br>";
+}
 
-    //Imprimir
+// Validación de la firma
+if (isset($_FILES["Firma"])) {
+    $file = $_FILES["Firma"];
+    $nombreFirma = $file["name"];
+    $tipoFirma = $file["type"];
+    $ruta_provisionalFirma = $file["tmp_name"];
+    $sizeFirma = $file["size"];
+    $dimensionesFirma = getimagesize($ruta_provisionalFirma);
+    $widthFirma = $dimensionesFirma[0];
+    $heightFirma = $dimensionesFirma[1];
+    $carpetaFirma = "img/fotosFirmas/";
+
+    if (in_array($tipoFirma, $tiposPermitidos)) {
+        // Verificar el tamaño (máximo 3MB)
+        if ($sizeFirma <= 3 * 1024 * 1024) { // 3MB en bytes
+            $destinoFirma = $carpetaFirma . $nombreFirma;
+            if (move_uploaded_file($ruta_provisionalFirma, $destinoFirma)) {
+                echo "La firma ha sido subida exitosamente.<br>";
+                $firmaValida = true;
+                $imagenFirma = "img/fotosFirmas/" . $nombreFirma;
+            } else {
+                echo "Error al mover la firma.<br>";
+            }
+        } else {
+            echo "Error, el tamaño máximo permitido para la firma es de 3MB.<br>";
+        }
+    } else {
+        echo "Error, la firma no es una imagen válida.<br>";
+    }
+} else {
+    echo "No se ha seleccionado ninguna firma.<br>";
+}
+
+// Si ambas imágenes son válidas, realizar la inserción en la base de datos
+if ($fotoValida && $firmaValida) {
+    // Imprimir
     print("ID=" . $ID . "<br>");
     print("Nombre=" . $Nombre . "<br>");
     print("Fecha de nacimiento=" . $FechaNacimiento . "<br>");
-    print("Foto=" . $Foto . "<br>");
-    print("Firma=" . $Firma . "<br>");
+    print("Foto=" . $imagenFoto . "<br>");
+    print("Firma=" . $imagenFirma . "<br>");
     print("RFC=" . $RFC . "<br>");
     print("Domicilio=" . $Domicilio . "<br>");
     print("Tipo de sangre=" . $TipoSangre . "<br>");
@@ -32,19 +99,24 @@
     print("CURP=" . $CURP . "<br>");
     print("ID Direccion=" . $IdDireccion . "<br>");
 
-    // Formar la instrucción SQL -  se van a ocupar las variables anteriores
-    $SQL="INSERT INTO Conductores (ID, Nombre, FechaNacimiento, Foto, Firma, RFC, Domicilio, TipoSangre, Donador, CURP, IDDireccion) 
-    VALUES ('$ID', '$Nombre', '$FechaNacimiento', '$Foto', '$Firma', '$RFC', '$Domicilio', '$TipoSangre', '$Donador', '$CURP', '$IdDireccion')";
+    // Formar la instrucción SQL
+    $SQL = "INSERT INTO Conductores (ID, Nombre, FechaNacimiento, Foto, Firma, RFC, Domicilio, TipoSangre, Donador, CURP, IDDireccion) 
+            VALUES ('$ID', '$Nombre', '$FechaNacimiento', '$imagenFoto', '$imagenFirma', '$RFC', '$Domicilio', '$TipoSangre', '$Donador', '$CURP', '$IdDireccion')";
     print($SQL);
 
-    //CONECTAR CON BASE DE DATOS
+    // CONECTAR CON BASE DE DATOS
     include("Controlador.php"); 
-    $Con=Conectar(); //Paso 1 y 2 -- obtención del objeto MySQL -. Conectar al SMBD
-    $ResultSet=Ejecutar($Con, $SQL); //Paso 3  --  el primer parametro es el resultado de la función anterior -- Ejecutar consulta -- Devuelve 1 si se hizo la inserción
-    $Resultato=Desconectar($Con);//Paso 5 -- cerrar la conexión -- recibe objeto de MYSQLL -- Devuelve 1 cuando se puede cerrar la conexion y 0 cuando se puede cerrar la conexion
-    if($ResultSet==1){
+    $Con = Conectar(); // Paso 1 y 2 -- obtención del objeto MySQL - Conectar al SMBD
+    $ResultSet = Ejecutar($Con, $SQL); // Paso 3 -- Ejecutar consulta
+    $Resultado = Desconectar($Con); // Paso 5 -- Cerrar la conexión
+
+    if ($ResultSet == 1) {
         print("Registro Insertado");
     } else {
-        print("egistro NO Insertado");
+        print("Registro NO Insertado");
     }
+} else {
+    echo "No se ha podido insertar el registro debido a errores en la subida de imágenes.<br>";
+}
+
 ?>
