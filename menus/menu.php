@@ -1,12 +1,10 @@
 <?php
-session_start(); // Asegúrate de iniciar la sesión al comienzo del script
-
-// Verifica si la variable de sesión está establecida
-if (!isset($_SESSION['usuario'])) {
-    echo "Acceso denegado. Por favor, inicie sesión.";
-    // Redirigir a la página de inicio de sesión o mostrar un mensaje de error
-    header("Location: ../index.php"); // Ajusta la ubicación según tu estructura de archivos
-    exit();
+  session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+  $varssesion = $_SESSION['usuario'];
+  // Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización';
+  die();
 }
 
 // Si la variable de sesión está establecida, muestra el contenido de la página
@@ -93,6 +91,7 @@ echo "Bienvenido, " . $_SESSION['usuario'];
           <li><a href="#">Vehiculos</a></li>
           <li><a href="#">Verificaciones</a></li>
         </ul>
+        <a href="cerrar_sesion.php">Cerrar Sesion</a>
       </li>
     </ul>
   </div>
