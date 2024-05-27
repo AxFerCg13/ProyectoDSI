@@ -23,10 +23,15 @@
                         session_start();
                         $_SESSION['usuario'] = $UserName;
                         print("Administrador");
-                        header("Location: ./menus/menu.php");
+                        header("Location: ./Administrador/menu.php");
                         exit();
                     } else {
                         print("Usuario");
+                        session_start();
+                        $_SESSION['usuario'] = $UserName;
+                        print("Usuario");
+                        header("Location: ./Usuario/menu_usuario.php");
+                        exit();
                     }
                 } else{
                     print("Cuenta bloqueada");

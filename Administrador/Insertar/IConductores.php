@@ -25,7 +25,7 @@ if (isset($_FILES["Foto"])) {
     $dimensionesFoto = getimagesize($ruta_provisionalFoto);
     $widthFoto = $dimensionesFoto[0];
     $heightFoto = $dimensionesFoto[1];
-    $carpetaFoto = "img/Conductores/fotosConductores/";
+    $carpetaFoto = "../../img/Conductores/fotosConductores/";
 
     // Lista de tipos permitidos
     $tiposPermitidos = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
@@ -37,7 +37,7 @@ if (isset($_FILES["Foto"])) {
             if (move_uploaded_file($ruta_provisionalFoto, $destinoFoto)) {
                 echo "La foto ha sido subida exitosamente.<br>";
                 $fotoValida = true;
-                $imagenFoto = "img/Conductores/fotosConductores/" . $nombreFoto;
+                $imagenFoto = "../../img/Conductores/fotosConductores/" . $nombreFoto;
             } else {
                 echo "Error al mover la foto.<br>";
             }
@@ -61,7 +61,7 @@ if (isset($_FILES["Firma"])) {
     $dimensionesFirma = getimagesize($ruta_provisionalFirma);
     $widthFirma = $dimensionesFirma[0];
     $heightFirma = $dimensionesFirma[1];
-    $carpetaFirma = "img/Conductores/fotosFirmas/";
+    $carpetaFirma = "../../img/Conductores/fotosFirmas/";
 
     if (in_array($tipoFirma, $tiposPermitidos)) {
         // Verificar el tamaño (máximo 3MB)
@@ -70,7 +70,7 @@ if (isset($_FILES["Firma"])) {
             if (move_uploaded_file($ruta_provisionalFirma, $destinoFirma)) {
                 echo "La firma ha sido subida exitosamente.<br>";
                 $firmaValida = true;
-                $imagenFirma = "img/Conductores/fotosFirmas/" . $nombreFirma;
+                $imagenFirma = "../../img/Conductores/fotosFirmas/" . $nombreFirma;
             } else {
                 echo "Error al mover la firma.<br>";
             }
