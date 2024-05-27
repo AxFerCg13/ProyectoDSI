@@ -20,8 +20,10 @@
                     print("Cuenta NO Bloqueada");
                     print("********************ENTRAR*************************");
                     if($Fila[2]=='A'){
+                        session_start();
+                        $_SESSION['usuario'] = $UserName;
                         print("Administrador");
-                        header("Location: ./menus/menu.html");
+                        header("Location: ./menus/menu.php");
                         exit();
                     } else {
                         print("Usuario");
