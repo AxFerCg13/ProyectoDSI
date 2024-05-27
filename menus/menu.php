@@ -1,3 +1,20 @@
+<?php
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+
+// Verifica si la variable de sesión está establecida
+if (!isset($_SESSION['usuario'])) {
+    echo "Acceso denegado. Por favor, inicie sesión.";
+    // Redirigir a la página de inicio de sesión o mostrar un mensaje de error
+    header("Location: ../index.php"); // Ajusta la ubicación según tu estructura de archivos
+    exit();
+}
+
+// Si la variable de sesión está establecida, muestra el contenido de la página
+echo "Bienvenido, " . $_SESSION['usuario'];
+// Resto del contenido de la página
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
