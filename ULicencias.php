@@ -21,7 +21,8 @@ include("Controlador.php");
         <label>FechaExpedicion</label>
         <input type="datetime" id="FechaExpedicion" name="FechaExpedicion" value="<?php print($Fila[1]);?>">
         <label>Vigencia</label>
-        <input type="datetime" id="Vigencia" name="Vigencia" value="<?php print($Fila[2]);?>">
+        <select id="Vigencia" name="Vigencia"> <option value="3" <?php if ($Fila[2] == '3') echo 'selected'; 
+        ?>>3 años</option> <option value="5" <?php if ($Fila[2] == '5') echo 'selected'; ?>>5 años</option> </select>
         <label>Tipo</label>
         <input type="text" id="Tipo" name="Tipo" value="<?php print($Fila[3]);?>">
         <label>NumEmergencia</label>
