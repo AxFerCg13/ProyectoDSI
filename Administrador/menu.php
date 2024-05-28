@@ -71,17 +71,17 @@ echo "Bienvenido, " . $_SESSION['usuario'];
             <input type="checkbox" id="eliminar">
             <label for="eliminar">Eliminar</label>
             <ul>
-              <li><a href="./Eliminar/FDAgentes.html">Agentes</a></li>
-              <li><a href="./Eliminar/FDCentroVerificacion.html">Centro de Verificación</a></li>
-              <li><a href="./Eliminar/FDConductores.html">Conductores</a></li>
-              <li><a href="./Eliminar/FDDirecciones.html">Direcciones</a></li>
-              <li><a href="./Eliminar/FDLicencias.html">Licencias</a></li>
-              <li><a href="./Eliminar/FDMultas.html">Multas</a></li>
-              <li><a href="./Eliminar/FDPropietarios.html">Propietarios</a></li>
-              <li><a href="./Eliminar/FDTarjetasCirculacion.html">Tarjetas de circulación</a></li>
-              <li><a href="./Eliminar/FDTenencias.html">Tenencias</a></li>
-              <li><a href="./Eliminar/FDVehiculos.html">Vehículos</a></li>
-              <li><a href="./Eliminar/FDVerificaciones.html">Verificaciones</a></li>
+              <li><a href="./Eliminar/DAgentes.php">Agentes</a></li>
+              <li><a href="./Eliminar/DCentroVerificacion.php">Centro de Verificación</a></li>
+              <li><a href="./Eliminar/DConductores.php">Conductores</a></li>
+              <li><a href="./Eliminar/DDirecciones.php">Direcciones</a></li>
+              <li><a href="./Eliminar/DLicencias.php">Licencias</a></li>
+              <li><a href="./Eliminar/DMultas.php">Multas</a></li>
+              <li><a href="./Eliminar/DPropietarios.php">Propietarios</a></li>
+              <li><a href="./Eliminar/DTarjetasCircuclacion.php">Tarjetas de circulación</a></li>
+              <li><a href="./Eliminar/DTenencias.php">Tenencias</a></li>
+              <li><a href="./Eliminar/DVehiculoes.php">Vehículos</a></li>
+              <li><a href="./Eliminar/DVerificaciones.php">Verificaciones</a></li>
             </ul>
           </li>
           <li>
