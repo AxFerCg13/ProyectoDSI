@@ -1,12 +1,12 @@
 <?php
 //// Obtener los dartos desde la vista
-$id=$_POST['id'];
+//$id=$_POST['id'];
 
 require('fpdf.php');
 
-include("../../Controlador.php");
+include("../Controlador.php");
 $Con=Conectar();
-$SQL = "SELECT * FROM V_DatosLicencia WHERE NumLicencia='$id'";
+$SQL = "SELECT * FROM V_DatosLicencia WHERE NumLicencia='10'";
 $ResulSet=Ejecutar($Con, $SQL);
 $Fila=mysqli_fetch_row($ResulSet);
 Desconectar($Con);
@@ -30,7 +30,7 @@ $pdf->Cell(10,10,'Secretaria de Seguridad Ciudadana', 0, 1, 'R');
 $pdf->SetFont('Arial','B',5.5); 
 $pdf->SetXY(30, 7.5);
 $pdf->Cell(10,10,'Licencia para conducir', 0, 1, 'R');
-$pdf->Image('user.jpg', 30, 18, 20);
+$pdf->Image($Fila[6], 37, 20, 12,12);
 
 $pdf->SetFont('Arial','',3);
 $pdf->SetXY(22, 18);
@@ -96,7 +96,7 @@ $pdf->Cell(10,12.5,'INFRACCCION', 0, 1, 'C');
 $pdf->SetFont('Arial','', 3);
 $pdf->SetXY(24, 50.6);
 $pdf->Cell(10,12,'Firma', 0, 1, 'C');
-$pdf->Image('firma.png', 24, 58, 11);
+$pdf->Image($Fila[8], 24, 58, 11);
 
 $pdf->Image('lineasQro.png', 40, 65, 15);
 
