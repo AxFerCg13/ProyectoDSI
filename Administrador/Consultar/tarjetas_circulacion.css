@@ -1,4 +1,4 @@
-/* vehiculos.css */
+/* tarjetas_circulacion.css */
 
 body {
     background-color: #fafafa;
@@ -11,7 +11,7 @@ body {
 
 .container {
     background-color: #ffffff;
-    padding: 50px; /* Reducción del padding */
+    padding: 50px; /* Ajuste del padding */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; /* Centrar contenido dentro del contenedor */
@@ -23,7 +23,7 @@ h1 {
     color: #6d7fcc;
     font-size: 30px;
     margin-bottom: 20px; /* Ajuste del margen inferior */
-    font-weight: bold; /* Texto de "Vehículos" en negritas */
+    font-weight: bold; /* Texto de "Tarjetas de Circulación" en negritas */
 }
 
 p {
@@ -59,4 +59,3 @@ tr:nth-child(even) {
     font-size: 18px;
     margin-top: 20px;
 }
-

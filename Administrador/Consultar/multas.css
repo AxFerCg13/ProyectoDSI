@@ -1,4 +1,4 @@
-/* vehiculos.css */
+/* multas.css */
 
 body {
     background-color: #fafafa;
@@ -11,19 +11,23 @@ body {
 
 .container {
     background-color: #ffffff;
-    padding: 50px; /* Reducción del padding */
+    padding: 100px; /* Ajuste del padding más largo y ancho */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; /* Centrar contenido dentro del contenedor */
-    max-width: 100%; /* Ajuste para que el contenedor ocupe todo el ancho */
-    overflow-x: auto; /* Agregar barra de desplazamiento horizontal si es necesario */
+    max-width: 1010px; /* Limitar el ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
+label {
     color: #6d7fcc;
     font-size: 30px;
     margin-bottom: 20px; /* Ajuste del margen inferior */
-    font-weight: bold; /* Texto de "Vehículos" en negritas */
+    font-weight: bold; /* Texto de "Multas" en negritas */
 }
 
 p {
@@ -35,14 +39,14 @@ p {
 
 table {
     border-collapse: collapse;
-    width: 100%; /* Ancho de la tabla al 100% del contenedor */
-    margin: 0 auto; /* Centrar la tabla dentro del contenedor */
+    width: 90%; /* Ancho de la tabla ajustado */
+    max-width: 100%; /* Ajuste del ancho máximo de la tabla */
 }
 
 th, td {
-    padding: 5px; /* Ajuste del padding */
+    padding: 10px; /* Ajuste del padding */
     text-align: center;
-    font-size: 12px; /* Tamaño de fuente reducido */
+    font-size: 14px; /* Tamaño de fuente ajustado */
 }
 
 th {
@@ -59,4 +63,3 @@ tr:nth-child(even) {
     font-size: 18px;
     margin-top: 20px;
 }
-
