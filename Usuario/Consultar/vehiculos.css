@@ -1,0 +1,63 @@
+        /* vehiculos.css */
+
+        body {
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 150px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: calc(100% - 5cm); /* Restamos 5cm al ancho total de la pantalla */
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow-x: hidden; /* Oculta el desplazamiento horizontal */
+            margin-left: -3.5cm; /* Ajustamos el margen izquierdo a 5cm */
+        }
+
+        h1 {
+            color: #6d7fcc;
+            font-size: 30px;
+            margin-bottom: 20px; /* Ajuste del margen inferior */
+            font-weight: bold; /* Texto de "Vehículos" en negritas */
+        }
+
+        p {
+            color: #101111;
+            font-size: 18px;
+            margin-bottom: 20px; /* Ajuste del margen inferior */
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%; /* Ancho de la tabla ajustado */
+            margin: 0; /* Elimina el margen para alinear la tabla a la izquierda */
+        }
+
+        th, td {
+            padding: 5px; /* Ajuste del padding más pequeño */
+            text-align: center;
+            font-size: 12px; /* Tamaño de fuente ajustado */
+        }
+
+        th {
+            background-color: #7386D5;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .total-registros {
+            color: #101111;
+            font-size: 18px;
+            margin-top: 20px;
+        }

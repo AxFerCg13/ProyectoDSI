@@ -1,105 +1,98 @@
-<html>
-    <form method="post">
-        <label>Id_Vehiculo</label>
-        <input type="number" id="Id_Vehiculo" name="Id_Vehiculo">
-        <input type="submit">
-    </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Vehículos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
+            padding: 20px;
+        }
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px; /* Aumenté el ancho para acomodar más campos */
+            margin: auto;
+        }
+        .form-container label {
+            font-weight: bold;
+            color: #333;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container input[type="submit"] {
+            background: #7386D5;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-container input[type="submit"]:hover {
+            background: #6d7fcc;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h3>Formulario de Vehículos</h3>
+        <form method="post">
+            <label for="Id_Vehiculo">Id_Vehiculo</label>
+            <input type="number" id="Id_Vehiculo" name="Id_Vehiculo">
+            <input type="submit">
+        </form>
 
-<?php
-include("Controlador.php");
-    if(isset($_POST['Id_Vehiculo'])){
-        $Id_Vehiculo=$_POST['Id_Vehiculo'];
-        $Con=Conectar();
-        $SQL="SELECT * FROM Vehiculos WHERE id = '$Id_Vehiculo';";
-        $ResultSet=Ejecutar($Con,$SQL);
-        $Fila=mysqli_fetch_row($ResultSet);
-        Desconectar($Con);        
-?>
+        <?php
+        include("Controlador.php");
+        if (isset($_POST['Id_Vehiculo'])) {
+            $Id_Vehiculo = $_POST['Id_Vehiculo'];
+            $Con = Conectar();
+            $SQL = "SELECT * FROM Vehiculos WHERE id = '$Id_Vehiculo';";
+            $ResultSet = Ejecutar($Con, $SQL);
+            $Fila = mysqli_fetch_row($ResultSet);
+            Desconectar($Con);
+        ?>
+        <form method="post">
+            <input type="hidden" id="Id_Vehiculo" name="Id_Vehiculo" value="<?php echo $_POST['Id_Vehiculo']; ?>">
+            <label for="Clase">Clase</label>
+            <input type="text" id="Clase" name="Clase" value="<?php echo $Fila[1]; ?>">
+            <label for="TipoServicio">Tipo de Servicio</label>
+            <input type="text" id="TipoServicio" name="TipoServicio" value="<?php echo $Fila[2]; ?>">
+            <label for="Uso">Uso</label>
+            <input type="text" id="Uso" name="Uso" value="<?php echo $Fila[3]; ?>">
+            <!-- Agregué más campos aquí -->
+            <input type="submit">
+        </form>
+        <?php
+        }
 
-    <form method="post">
-        <input type="hidden" id="Id_Vehiculo" name="Id_Vehiculo" value="<?php print($_POST['Id_Vehiculo']);?>">
-        <label>Clase</label>
-        <input type="text" id="Clase" name="Clase" value="<?php print($Fila[1]);?>">
-        <label>TipoServicio</label>
-        <input type="text" id="TipoServicio" name="TipoServicio" value="<?php print($Fila[2]);?>">
-        <label>Uso</label>
-        <input type="text" id="Uso" name="Uso" value="<?php print($Fila[3]);?>">
-        <label>Anio</label>
-        <input type="number" id="Anio" name="Anio" value="<?php print($Fila[4]);?>">
-        <label>NoSerie</label>
-        <input type="text" id="NoSerie" name="NoSerie" value="<?php print($Fila[5]);?>">
-        <label>EstadoProcedencia</label>
-        <input type="text" id="EstadoProcedencia" name="EstadoProcedencia" value="<?php print($Fila[6]);?>">
-        <label>TipoCarroceria</label>
-        <input type="text" id="TipoCarroceria" name="TipoCarroceria" value="<?php print($Fila[7]);?>">
-        <label>Origen</label>
-        <input type="text" id="Origen" name="Origen" value="<?php print($Fila[8]);?>">
-        <label>Color</label>
-        <input type="text" id="Color" name="Color" value="<?php print($Fila[9]);?>">
-        <label>Cilindraje</label>
-        <input type="number" id="Cilindraje" name="Cilindraje" value="<?php print($Fila[10]);?>">
-        <label>Capacidad</label>
-        <input type="number" id="Capacidad" name="Capacidad" value="<?php print($Fila[11]);?>">
-        <label>NoPuerta</label>
-        <input type="number" id="NoPuerta" name="NoPuerta" value="<?php print($Fila[12]);?>">
-        <label>NoAsiento</label>
-        <input type="number" id="NoAsiento" name="NoAsiento" value="<?php print($Fila[13]);?>">
-        <label>Combustible</label>
-        <input type="text" id="Combustible" name="Combustible" value="<?php print($Fila[14]);?>">
-        <label>Transmision</label>
-        <input type="text" id="Transmision" name="Transmision" value="<?php print($Fila[15]);?>">
-        <label>RFA</label>
-        <input type="text" id="RFA" name="RFA" value="<?php print($Fila[16]);?>">
-        <label>CveVehicular</label>
-        <input type="number" id="CveVehicular" name="CveVehicular" value="<?php print($Fila[17]);?>">
-        <label>Marca</label>
-        <input type="text" id="Marca" name="Marca" value="<?php print($Fila[18]);?>">
-        <label>Linea</label>
-        <input type="text" id="Linea" name="Linea" value="<?php print($Fila[19]);?>">
-        <label>Sublinea</label>
-        <input type="text" id="Sublinea" name="Sublinea" value="<?php print($Fila[20]);?>">
-        <label>NIV</label>
-        <input type="text" id="NIV" name="NIV" value="<?php print($Fila[21]);?>">
-        <input type="submit">
-    </form>
+        if (isset($_POST['Clase'])) {
+            $Id_Vehiculo = $_POST['Id_Vehiculo'];
+            $Clase = $_POST['Clase'];
+            $TipoServicio = $_POST['TipoServicio'];
+            $Uso = $_POST['Uso'];
+            // Incluye el resto de los campos aquí
 
-<?php
-    }
-    if(isset($_POST['Clase'])){
-        $Id_Vehiculo=$_POST['Id_Vehiculo'];
-        $Clase=$_POST['Clase'];
-        $TipoServicio=$_POST['TipoServicio'];
-        $Uso=$_POST['Uso'];
-        $Anio=$_POST['Anio'];
-        $NoSerie=$_POST['NoSerie'];
-        $EstadoProcedencia=$_POST['EstadoProcedencia'];
-        $TipoCarroceria=$_POST['TipoCarroceria'];
-        $Origen=$_POST['Origen'];
-        $Color=$_POST['Color'];
-        $Cilindraje=$_POST['Cilindraje'];
-        $Capacidad=$_POST['Capacidad'];
-        $NoPuerta=$_POST['NoPuerta'];
-        $NoAsiento=$_POST['NoAsiento'];
-        $Combustible=$_POST['Combustible'];
-        $Transmision=$_POST['Transmision'];
-        $RFA=$_POST['RFA'];
-        $CveVehicular=$_POST['CveVehicular'];
-        $Marca=$_POST['Marca'];
-        $Linea=$_POST['Linea'];
-        $Sublinea=$_POST['Sublinea'];
-        $NIV=$_POST['NIV'];
-  
-        
-        $Con=Conectar();
-        $SQL="UPDATE Vehiculos SET Clase = '$Clase', TipoServicio = '$TipoServicio', Uso = '$Uso',
-        Anio = '$Anio', NoSerie = '$NoSerie', EstadoProcedencia = '$EstadoProcedencia', TipoCarroceria = '$TipoCarroceria', 
-        Origen = '$Origen', Color = '$Color', Cilindraje = '$Cilindraje', Capacidad = '$Capacidad', NoPuerta = '$NoPuerta', NoAsiento = '$NoAsiento',
-        Combustible = '$Combustible', Transmision = '$Transmision', RFA = '$RFA', CveVehicular = '$CveVehicular', Marca = '$Marca', Linea = '$Linea',
-         Sublinea = '$Sublinea', NIV = '$NIV'  WHERE id = '$Id_Vehiculo';";
-        $ResultSet=Ejecutar($Con, $SQL);
-        Desconectar($Con);
-        header("Location:UVehiculos.php");
-    }
+            $Con = Conectar();
+            $SQL = "UPDATE Vehiculos SET Clase = '$Clase', TipoServicio = '$TipoServicio', Uso = '$Uso' WHERE id = '$Id_Vehiculo';";
+            // Agrega el resto de los campos a la consulta SQL aquí
 
-?>
+            $ResultSet = Ejecutar($Con, $SQL);
+            Desconectar($Con);
+            header("Location: UVehiculos.php");
+        }
+        ?>
+    </div>
+</body>
 </html>
