@@ -1,4 +1,4 @@
-/* vehiculos.css */
+/* propietarios.css */
 
 body {
     background-color: #fafafa;
@@ -11,19 +11,19 @@ body {
 
 .container {
     background-color: #ffffff;
-    padding: 50px; /* Reducción del padding */
+    padding: 80px; /* Ajuste del padding más largo y ancho */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; /* Centrar contenido dentro del contenedor */
-    max-width: 100%; /* Ajuste para que el contenedor ocupe todo el ancho */
-    overflow-x: auto; /* Agregar barra de desplazamiento horizontal si es necesario */
+    max-width: 900px; /* Limitar el ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
 }
 
 h1 {
     color: #6d7fcc;
     font-size: 30px;
     margin-bottom: 20px; /* Ajuste del margen inferior */
-    font-weight: bold; /* Texto de "Vehículos" en negritas */
+    font-weight: bold; /* Texto de "Propietarios" en negritas */
 }
 
 p {
@@ -34,15 +34,16 @@ p {
 }
 
 table {
+    margin-left: auto; /* Alinea la tabla a la derecha */
+    margin-right: auto; /* Alinea la tabla a la izquierda */
     border-collapse: collapse;
-    width: 100%; /* Ancho de la tabla al 100% del contenedor */
-    margin: 0 auto; /* Centrar la tabla dentro del contenedor */
+    width: 70%; /* Ancho de la tabla ajustado */
 }
 
 th, td {
-    padding: 5px; /* Ajuste del padding */
+    padding: 10px; /* Ajuste del padding */
     text-align: center;
-    font-size: 12px; /* Tamaño de fuente reducido */
+    font-size: 14px; /* Tamaño de fuente ajustado */
 }
 
 th {
@@ -59,4 +60,3 @@ tr:nth-child(even) {
     font-size: 18px;
     margin-top: 20px;
 }
-

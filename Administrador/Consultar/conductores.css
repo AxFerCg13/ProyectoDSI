@@ -1,5 +1,4 @@
-/* vehiculos.css */
-
+/* conductores.css */
 body {
     background-color: #fafafa;
     display: flex;
@@ -11,38 +10,37 @@ body {
 
 .container {
     background-color: #ffffff;
-    padding: 50px; /* Reducción del padding */
+    padding: 80px; /* Ajustar el padding para más espacio alrededor del contenido */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; /* Centrar contenido dentro del contenedor */
-    max-width: 100%; /* Ajuste para que el contenedor ocupe todo el ancho */
-    overflow-x: auto; /* Agregar barra de desplazamiento horizontal si es necesario */
+    width: 100%; /* Ajustar el ancho del contenedor al 100% para ocupar todo el espacio disponible */
+    max-width: 1180px; /* Ajustar el ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
 }
 
 h1 {
     color: #6d7fcc;
     font-size: 30px;
-    margin-bottom: 20px; /* Ajuste del margen inferior */
-    font-weight: bold; /* Texto de "Vehículos" en negritas */
+    margin-bottom: 10px;
 }
 
 p {
     color: #101111;
     font-size: 18px;
     margin-bottom: 20px; /* Ajuste del margen inferior */
-    line-height: 1.5; /* Altura de línea aumentada para mejor legibilidad */
 }
 
 table {
+    margin: 0 auto; /* Centrar la tabla horizontalmente */
     border-collapse: collapse;
-    width: 100%; /* Ancho de la tabla al 100% del contenedor */
-    margin: 0 auto; /* Centrar la tabla dentro del contenedor */
+    width: 50%; /* Reducir el ancho de la tabla al 50% */
 }
 
 th, td {
-    padding: 5px; /* Ajuste del padding */
+    padding: 5px; /* Reducir el padding para que los datos se ajusten mejor */
     text-align: center;
-    font-size: 12px; /* Tamaño de fuente reducido */
+    font-size: 12px; /* Reducir el tamaño de la fuente */
 }
 
 th {

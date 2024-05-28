@@ -44,7 +44,7 @@ echo "Bienvenido, " . $_SESSION['usuario'];
               <li><a href="./Consultar/CLicencias.php">Licencias</a></li>
               <li><a href="./Consultar/CMultas.php">Multas</a></li>
               <li><a href="./Consultar/CPropietarios.php">Propietarios</a></li>
-              <li><a href="./Consultar/CTarjetasCirculacion.php">Tarjetas de circulación</a></li>
+              <li><a href="./Consultar/CTarjeatsCir.php">Tarjetas de circulación</a></li>
               <li><a href="./Consultar/CTenencias.php">Tenencias</a></li>
               <li><a href="./Consultar/CVehiculo.php">Vehículos</a></li>
               <li><a href="./Consultar/CVerificaciones.php">Verificaciones</a></li>
