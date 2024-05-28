@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <form action="Validacion.php" method="post" enctype="multipart/form-data">
-        <label>UserName</label>
-        <input type="text" id="UserName" name="UserName">
-        <label>Password</label>
-        <input type="password" id="Password" name="Password">
-        <label>Key</label>
-        <input type="file" id="key" name="key">
-        <input type="submit">
-    </form>
-    
+    <div class="container">
+        <h1>Iniciar Sesión</h1>
+        <form action="Validacion.php" method="post" enctype="multipart/form-data">
+            <label for="UserName">Username</label>
+            <input type="text" id="UserName" name="UserName" placeholder="Enter a valid username">
+
+            <label for="Password">Password</label>
+            <input type="password" id="Password" name="Password" placeholder="Enter password">
+
+            <label for="key">Key</label>
+            <input type="file" id="key" name="key">
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
+

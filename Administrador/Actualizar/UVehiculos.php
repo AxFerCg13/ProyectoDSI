@@ -71,6 +71,42 @@
             <input type="text" id="TipoServicio" name="TipoServicio" value="<?php echo $Fila[2]; ?>">
             <label for="Uso">Uso</label>
             <input type="text" id="Uso" name="Uso" value="<?php echo $Fila[3]; ?>">
+            <label for="Anio">Anio</label>
+            <input type="text" id="Anio" name="Anio" value="<?php echo $Fila[4]; ?>">
+            <label for="NoSerie">NoSerie</label>
+            <input type="text" id="NoSerie" name="NoSerie" value="<?php echo $Fila[5]; ?>">
+            <label for="EstadoProcedencia">EstadoProcedencia</label>
+            <input type="text" id="EstadoProcedencia" name="EstadoProcedencia" value="<?php echo $Fila[6]; ?>">
+            <label for="TipoCarroceria">TipoCarroceria</label>
+            <input type="text" id="TipoCarroceria" name="TipoCarroceria" value="<?php echo $Fila[7]; ?>">
+            <label for="Origen">Origen</label>
+            <input type="text" id="Origen" name="Origen" value="<?php echo $Fila[8]; ?>">
+            <label for="Color">Color</label>
+            <input type="text" id="Color" name="Color" value="<?php echo $Fila[9]; ?>">
+            <label for="Cilindraje">Cilindraje</label>
+            <input type="text" id="Cilindraje" name="Cilindraje" value="<?php echo $Fila[10]; ?>">
+            <label for="Capacidad">Capacidad</label>
+            <input type="text" id="Capacidad" name="Capacidad" value="<?php echo $Fila[11]; ?>">
+            <label for="NoPuerta">NoPuerta</label>
+            <input type="text" id="NoPuerta" name="NoPuerta" value="<?php echo $Fila[12]; ?>">
+            <label for="NoAsiento">NoAsiento</label>
+            <input type="text" id="NoAsiento" name="NoAsiento" value="<?php echo $Fila[13]; ?>">
+            <label for="Combustible">Combustible</label>
+            <input type="text" id="Combustible" name="Combustible" value="<?php echo $Fila[14]; ?>">
+            <label for="Transmision">Transmision</label>
+            <input type="text" id="Transmision" name="Transmision" value="<?php echo $Fila[15]; ?>">
+            <label for="RFA">RFA</label>
+            <input type="text" id="RFA" name="RFA" value="<?php echo $Fila[16]; ?>">
+            <label for="CveVehicular">CveVehicular</label>
+            <input type="text" id="CveVehicular" name="CveVehicular" value="<?php echo $Fila[17]; ?>">
+            <label for="Marca">Marca</label>
+            <input type="text" id="Marca" name="Marca" value="<?php echo $Fila[18]; ?>">
+            <label for="Linea">Linea</label>
+            <input type="text" id="Linea" name="Linea" value="<?php echo $Fila[19]; ?>">
+            <label for="Sublinea">Sublinea</label>
+            <input type="text" id="Sublinea" name="Sublinea" value="<?php echo $Fila[20]; ?>">
+            <label for="NIV">NIV</label>
+            <input type="text" id="NIV" name="NIV" value="<?php echo $Fila[21]; ?>">
             <!-- Agregué más campos aquí -->
             <input type="submit">
         </form>
@@ -82,10 +118,28 @@
             $Clase = $_POST['Clase'];
             $TipoServicio = $_POST['TipoServicio'];
             $Uso = $_POST['Uso'];
+            $Anio = $_POST['Anio']; 
+            $NoSerie = $_POST['NoSerie']; 
+            $EstadoProcedencia = $_POST['EstadoProcedencia']; 
+            $TipoCarroceria = $_POST['TipoCarroceria'];
+            $Origen = $_POST['Origen']; 
+            $Color = $_POST['Color']; 
+            $Cilindraje = $_POST['Cilindraje']; 
+            $Capacidad = $_POST['Capacidad']; 
+            $NoPuerta = $_POST['NoPuerta']; 
+            $NoAsiento = $_POST['NoAsiento']; 
+            $Combustible = $_POST['Combustible']; 
+            $Transmision = $_POST['Transmision']; 
+            $RFA = $_POST['RFA']; 
+            $CveVehicular = $_POST['CveVehicular']; 
+            $Marca = $_POST['Marca']; 
+            $Linea = $_POST['Linea']; 
+            $Sublinea = $_POST['Sublinea']; 
+            $NIV = $_POST['NIV']; 
             // Incluye el resto de los campos aquí
 
             $Con = Conectar();
-            $SQL = "UPDATE Vehiculos SET Clase = '$Clase', TipoServicio = '$TipoServicio', Uso = '$Uso' WHERE id = '$Id_Vehiculo';";
+            $SQL = "UPDATE Vehiculos SET Clase = '$Clase', TipoServicio = '$TipoServicio', Uso = '$Uso', Anio = '$Anio', NoSerie = '$NoSerie', EstadoProcedencia = '$EstadoProcedencia', TipoCarroceria = '$TipoCarroceria', Origen = '$Origen', Color = '$Color', Cilindraje = '$Cilindraje', Capacidad = '$Capacidad', NoPuerta = '$NoPuerta', NoAsiento = '$NoAsiento', Combustible = '$Combustible', Transmision = '$Transmision', RFA = '$RFA', CveVehicular = '$CveVehicular', Marca = '$Marca', Linea = '$Linea', Sublinea = '$Sublinea', NIV = '$NIV' WHERE id = '$Id_Vehiculo';";
             // Agrega el resto de los campos a la consulta SQL aquí
 
             $ResultSet = Ejecutar($Con, $SQL);

@@ -117,4 +117,4 @@
             FolioCertificado = '$FolioCertificado', Semestre = '$Semestre', CodigoBarras = '$CodigoBarras', NumeroCentro = '$NumCentro' WHERE Folio = '$Folio';";
             $ResultSet = Ejecutar($Con, $SQL);
             Desconectar($Con);
-        ]
+        }
