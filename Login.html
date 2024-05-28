@@ -6,12 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="Validacion.php" method="post">
+    <form action="Validacion.php" method="post" enctype="multipart/form-data">
         <label>UserName</label>
         <input type="text" id="UserName" name="UserName">
         <label>Password</label>
-        <input type="text" id="Password" name="Password">
+        <input type="password" id="Password" name="Password">
+        <label>Key</label>
+        <input type="file" id="key" name="key">
         <input type="submit">
     </form>
+    
 </body>
 </html>
