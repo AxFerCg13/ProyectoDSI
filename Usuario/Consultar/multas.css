@@ -1,4 +1,5 @@
-/* conductores.css */
+/* multas.css */
+
 body {
     background-color: #fafafa;
     display: flex;
@@ -10,37 +11,39 @@ body {
 
 .container {
     background-color: #ffffff;
-    padding: 80px; /* Ajustar el padding para más espacio alrededor del contenido */
+    padding: 150px; /* Ajuste del padding más largo y ancho */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; /* Centrar contenido dentro del contenedor */
-    width: 100%; /* Ajustar el ancho del contenedor al 100% para ocupar todo el espacio disponible */
-    max-width: 1180px; /* Ajustar el ancho máximo del contenedor */
+    max-width: 1010px; /* Limitar el ancho máximo del contenedor */
     margin: 0 auto; /* Centrar el contenedor horizontalmente */
 }
 
-h1 {
+label {
     color: #6d7fcc;
     font-size: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Ajuste del margen inferior */
+    font-weight: bold; /* Texto de "Multas" en negritas */
 }
 
 p {
     color: #101111;
     font-size: 18px;
     margin-bottom: 20px; /* Ajuste del margen inferior */
+    line-height: 1.5; /* Altura de línea aumentada para mejor legibilidad */
 }
 
 table {
-    margin: 0 auto; /* Centrar la tabla horizontalmente */
+    margin-left: auto; /* Alinea la tabla a la derecha */
+    margin-right: 10%; /* Alinea la tabla a la izquierda */
     border-collapse: collapse;
-    width: 50%; /* Reducir el ancho de la tabla al 50% */
+    width: 70%; /* Ancho de la tabla ajustado */
 }
 
 th, td {
-    padding: 5px; /* Reducir el padding para que los datos se ajusten mejor */
+    padding: 10px; /* Ajuste del padding */
     text-align: center;
-    font-size: 12px; /* Reducir el tamaño de la fuente */
+    font-size: 14px; /* Tamaño de fuente ajustado */
 }
 
 th {
@@ -57,4 +60,3 @@ tr:nth-child(even) {
     font-size: 18px;
     margin-top: 20px;
 }
-
