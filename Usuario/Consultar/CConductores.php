@@ -15,40 +15,37 @@
             <tr>
                 <th>ID Conductor</th>
                 <th>Nombre</th>
-                <th>Fecha de Nacimiento</th>
+                <th>FechaNacimiento</th>
                 <th>Foto</th>
                 <th>Firma</th>
                 <th>RFC</th>
                 <th>Domicilio</th>
-                <th>Tipo de Sangre</th>
+                <th>Tipo de sangre</th>
                 <th>Donador</th>
                 <th>CURP</th>
-                <th>ID Dirección</th>
+                <th>IDDireccion</th>
             </tr>
 
             <?php
-                include("Controlador.php"); // Se incluye al archivo correspondiente al controlador 
-                $Con=Conectar(); // Se conecta la base de datos
-                $SQL="SELECT * FROM Conductores"; // Se hace la consulta
-                $ResultSet=Ejecutar($Con,$SQL);
-                //Se va devolver el numero total de filas de la consulta
-                $NumFilas=mysqli_num_rows($ResultSet); // Para usar esta funcion primero se tiene que hacer una consulta
-                // Devolver una fila de la consulta realizada
+                include("Controlador.php");
+                $Con = Conectar();
+                $SQL = "SELECT * FROM Conductores";
+                $ResultSet = Ejecutar($Con, $SQL);
+                $NumFilas = mysqli_num_rows($ResultSet);
 
-                // Estructura iterativa
-                for($i=0; $i<$NumFilas; $i++) {
+                for ($i = 0; $i < $NumFilas; $i++) {
                     print("<tr>");
                     $Fila = mysqli_fetch_assoc($ResultSet);
                     foreach ($Fila as $valor) {
-                        print("<td>".$valor."</td>");
+                        print_r("<td>".$valor."</td>");
                     }
-                    print("</tr>");         
+                    print("</tr>");
                 }
                 Desconectar($Con);
             ?>
         </table>
         <?php
-            print("<p class='total-registros'>Total de Registros: ".$NumFilas."</p>")
+            print("Total de Registros: ".$NumFilas)
         ?>
     </div>
 </body>

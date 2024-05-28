@@ -10,7 +10,7 @@ body {
 
 .container {
     background-color: #ffffff;
-    padding: 60px; /* Ajuste del padding para más espacio alrededor del contenido */
+    padding: 30px; /* Ajuste del padding para más espacio alrededor del contenido */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; /* Centrar contenido dentro del contenedor */
@@ -38,7 +38,7 @@ table {
 }
 
 th, td {
-    padding: 15px; /* Corregida la sintaxis de padding */
+    padding: 10px; /* Reducción del padding */
     text-align: center;
 }
 
@@ -56,4 +56,5 @@ tr:nth-child(even) {
     font-size: 18px;
     margin-top: 20px;
 }
+
 
