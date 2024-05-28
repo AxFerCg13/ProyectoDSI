@@ -11,12 +11,16 @@ body {
 
 .container {
     background-color: #ffffff;
-    padding: 150px; /* Ajuste del padding más largo y ancho */
+    padding: 100px; /* Ajuste del padding más largo y ancho */
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; /* Centrar contenido dentro del contenedor */
     max-width: 1010px; /* Limitar el ancho máximo del contenedor */
     margin: 0 auto; /* Centrar el contenedor horizontalmente */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 label {
@@ -34,10 +38,9 @@ p {
 }
 
 table {
-    margin-left: auto; /* Alinea la tabla a la derecha */
-    margin-right: 10%; /* Alinea la tabla a la izquierda */
     border-collapse: collapse;
-    width: 70%; /* Ancho de la tabla ajustado */
+    width: 90%; /* Ancho de la tabla ajustado */
+    max-width: 100%; /* Ajuste del ancho máximo de la tabla */
 }
 
 th, td {
