@@ -1,0 +1,58 @@
+/* centro_verificacion.css */
+body {
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 60px; /* Ajuste del padding para más espacio alrededor del contenido */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrar contenido dentro del contenedor */
+    width: 50%; /* Ajusta el ancho del contenedor */
+    max-width: 900px; /* Limitar el ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+
+h1 {
+    color: #6d7fcc;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #101111;
+    font-size: 18px;
+    margin-bottom: 20px; /* Ajuste del margen inferior */
+}
+
+table {
+    margin: 0 auto; /* Centra la tabla horizontalmente */
+    border-collapse: collapse;
+    width: 80%; /* Ajusta el ancho de la tabla (modifícalo aquí si es necesario) */
+}
+
+th, td {
+    padding: 15px; /* Corregida la sintaxis de padding */
+    text-align: center;
+}
+
+th {
+    background-color: #7386D5;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.total-registros {
+    color: #101111;
+    font-size: 18px;
+    margin-top: 20px;
+}
