@@ -1,0 +1,64 @@
+body {
+    background-color: #fafafa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px; /* Ajuste del padding para más espacio alrededor del contenido */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centrar contenido dentro del contenedor */
+    width: 50%; /* Ajusta el ancho del contenedor */
+    max-width: 900px; /* Limitar el ancho máximo del contenedor */
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+
+h1 {
+    color: #6d7fcc;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+label {
+    color: #6d7fcc;
+    font-size: 18px;
+    margin-bottom: 5px;
+    display: block;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #6d7fcc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button[type="submit"]:hover {
+    background-color: #5c6bb1;
+}
+
+p {
+    color: #101111;
+    font-size: 18px;
+    margin-bottom: 20px; /* Ajuste del margen inferior */
+}
