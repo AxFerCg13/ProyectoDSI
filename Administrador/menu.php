@@ -19,7 +19,7 @@ echo "Bienvenido, " . $_SESSION['usuario'];
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menú</title>
+  <title>Menú Usuario</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="stylesheet" href="./styles/styles.css">
@@ -77,6 +77,7 @@ echo "Bienvenido, " . $_SESSION['usuario'];
       text-decoration: none;
       padding: 10px 20px;
       display: block;
+      background: #343a40;
     }
     #cerrarSesion {
       background-color: #dc3545;
@@ -86,6 +87,7 @@ echo "Bienvenido, " . $_SESSION['usuario'];
       cursor: pointer;
       margin-top: 10px;
       border-radius: 5px;
+      width: 100%;
     }
     #content {
       flex-grow: 1;
