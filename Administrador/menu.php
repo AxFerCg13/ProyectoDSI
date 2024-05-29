@@ -23,6 +23,89 @@ echo "Bienvenido, " . $_SESSION['usuario'];
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <link rel="stylesheet" href="./styles/styles.css">
+  <style>
+    .wrapper {
+      display: flex;
+    }
+    nav#sidebar {
+      background: #343a40;
+      min-width: 250px;
+      max-width: 250px;
+      height: 100vh;
+      color: white;
+      position: relative; /* Añadido */
+      z-index: 1; /* Añadido */
+    }
+    .sidebar-header {
+      padding: 20px;
+      background: #343a40;
+    }
+    .menu ul {
+      list-style: none;
+      padding: 0;
+    }
+    .menu li {
+      position: relative;
+    }
+    .menu input[type="checkbox"] {
+      display: none;
+    }
+    .menu label {
+      display: block;
+      padding: 10px;
+      color: white;
+      cursor: pointer;
+    }
+    .menu ul ul {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background-color: #343a40;
+      flex-direction: column;
+      border-radius: 0 0 10px 10px;
+      z-index: 2; /* Añadido */
+    }
+    .menu input[type="checkbox"]:checked + label + ul {
+      display: flex;
+    }
+    .menu ul ul li {
+      margin: 0;
+    }
+    .menu a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+    }
+    #cerrarSesion {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    #content {
+      flex-grow: 1;
+      position: relative;
+      background: url('imagen.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.5;
+      z-index: 0; /* Añadido */
+    }
+    .titulo h1 {
+      font-size: 5em;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative; /* Añadido */
+      z-index: 1; /* Añadido */
+    }
+  </style>
 </head>
 <body>
   <div class="wrapper">
