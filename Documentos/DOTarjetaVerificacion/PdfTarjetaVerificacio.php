@@ -69,7 +69,7 @@ Desconectar($Con);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(60,10.5);
-    $pdf->Cell(80, 10,'2023');
+    $pdf->Cell(80, 10,$Fila[15]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(60,12.5);
@@ -77,7 +77,7 @@ Desconectar($Con);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(85,10.5);
-    $pdf->Cell(80, 10,'UMF695E');
+    $pdf->Cell(80, 10,$Fila[33]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(85,12.5);
@@ -87,7 +87,7 @@ Desconectar($Con);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(2,15);
-    $pdf->Cell(80, 10,'3VWRP6BUXPM032593');
+    $pdf->Cell(80, 10,$Fila[16]);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(25,15);
@@ -98,8 +98,12 @@ Desconectar($Con);
     $pdf->Cell(80, 10,'Gasolina');
 
     $pdf->SetFont('Arial','',4);
+    $pdf->SetXY(40,15);
+    $pdf->Cell(80, 10,'Gasolina');
+
+    $pdf->SetFont('Arial','',4);
     $pdf->SetXY(60,15);
-    $pdf->Cell(80, 10,'3VWRP6BUXPM032593');
+    $pdf->Cell(80, 10,$Fila[27]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(2,17);
@@ -121,7 +125,7 @@ Desconectar($Con);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(2,19.5);
-    $pdf->Cell(80, 10,'4');
+    $pdf->Cell(80, 10,$Fila[21]);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(25,19.5);
@@ -129,11 +133,11 @@ Desconectar($Con);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(40,19.5);
-    $pdf->Cell(80, 10,'Queretaro');
+    $pdf->Cell(80, 10,$Fila[29]);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(60,19.5);
-    $pdf->Cell(80, 10,'EL MARQUES');
+    $pdf->Cell(80, 10,$Fila[28]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(2,21.5);
