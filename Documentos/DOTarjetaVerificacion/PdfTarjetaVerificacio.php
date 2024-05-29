@@ -1,10 +1,10 @@
 <?php
-//$id=$_POST['id'];
+$id=$_POST['id'];
 
 require('fpdf.php');
 include("../../Controlador.php");
 $Con=Conectar();
-$SQL = "SELECT * FROM V_DatosTarjetaVerificacion WHERE Folio=10";
+$SQL = "SELECT * FROM V_DatosTarjetaVerificacion WHERE Folio=$id";
 $ResulSet=Ejecutar($Con, $SQL);
 $Fila=mysqli_fetch_row($ResulSet);
 Desconectar($Con);
