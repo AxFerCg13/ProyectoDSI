@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <div class="container">
     <h2 class="my-4">Generar Tarjeta de Verificación</h2>
-    <form action="generarTarjetaVerificacion.php" method="post">
+    <form action="../Documentos/DOTarjetaVerificacion/PdfTarjetaVerificacio.php" method="post">
       <div class="form-group">
         <label for="id">ID de Verificación:</label>
         <input type="text" class="form-control" id="id" name="id" required>
