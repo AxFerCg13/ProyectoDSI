@@ -257,6 +257,10 @@ Desconectar($Con);
     $pdf->SetXY(120,44);
     $pdf->Cell(80, 10,'CENTRO DE VERIFICACION VEHICULAR');
 
-
-    $pdf->Output('I');
+    $Folio = $Fila[0];
+    $ruta = "./pdfGenerados/$Folio.pdf";
+    
+    // Guarda el archivo en la ruta especificada
+    $pdf->Output();
+    $pdf->Output('F', $ruta);
 ?>
