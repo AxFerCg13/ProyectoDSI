@@ -1,12 +1,12 @@
 <?php
 //// Obtener los dartos desde la vista
-//$id=$_POST['id'];
+$id=$_POST['id'];
 
 require('fpdf.php');
 
 include("../Controlador.php");
 $Con=Conectar();
-$SQL = "SELECT * FROM V_DatosLicencia WHERE NumLicencia='10'";
+$SQL = "SELECT * FROM V_DatosLicencia WHERE NumLicencia='$id'";
 $ResulSet=Ejecutar($Con, $SQL);
 $Fila=mysqli_fetch_row($ResulSet);
 Desconectar($Con);
@@ -183,10 +183,10 @@ $pdf->Cell(10,10,'Seguridad', 0, 1, 'I');
 $pdf->SetXY(44.5, 74.1);
 $pdf->Cell(10,10,'Ciudadana', 0, 1, 'I');
 
+$Folio = $Fila[0];
+$ruta = "./pdfGenerados/$Folio.pdf";
 
-
-
-
-
+// Guarda el archivo en la ruta especificada
 $pdf->Output();
+$pdf->Output('F', $ruta);
 ?>

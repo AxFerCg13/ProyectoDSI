@@ -1,5 +1,13 @@
 <?php
-    require('fpdf.php');
+$id=$_POST['id'];
+
+require('fpdf.php');
+include("../../Controlador.php");
+$Con=Conectar();
+$SQL = "SELECT * FROM V_DatosTarjetaVerificacion WHERE Folio=$id";
+$ResulSet=Ejecutar($Con, $SQL);
+$Fila=mysqli_fetch_row($ResulSet);
+Desconectar($Con);
 
     $pdf = new FPDF('L', 'mm', array(180, 75));
     $pdf->AddPage();
@@ -21,7 +29,7 @@
 
     $pdf->SetFont('Arial','',5);
     $pdf->SetXY(144,5);
-    $pdf->Cell(80, 10,'2320145528'); 
+    $pdf->Cell(80, 10,$Fila[10]); 
 
     $pdf->Image('QR.png', 110,18,15,15);
 
@@ -45,7 +53,7 @@
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(25,10.5);
-    $pdf->Cell(80, 10,'VW');
+    $pdf->Cell(80, 10,$Fila[31]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,12.5);
@@ -53,7 +61,7 @@
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(40,10.5);
-    $pdf->Cell(80, 10,'JETTA 1.4 TSI 1...');
+    $pdf->Cell(80, 10,$Fila[32]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(40,12.5);
@@ -61,7 +69,7 @@
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(60,10.5);
-    $pdf->Cell(80, 10,'2023');
+    $pdf->Cell(80, 10,$Fila[15]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(60,12.5);
@@ -69,7 +77,7 @@
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(85,10.5);
-    $pdf->Cell(80, 10,'UMF695E');
+    $pdf->Cell(80, 10,$Fila[33]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(85,12.5);
@@ -79,11 +87,15 @@
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(2,15);
-    $pdf->Cell(80, 10,'3VWRP6BUXPM032593');
+    $pdf->Cell(80, 10,$Fila[16]);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(25,15);
-    $pdf->Cell(80, 10,'AUTOMOVIL_SEDA...');
+    $pdf->Cell(80, 10,$Fila[12]);
+
+    $pdf->SetFont('Arial','',4);
+    $pdf->SetXY(40,15);
+    $pdf->Cell(80, 10,'Gasolina');
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(40,15);
@@ -91,7 +103,7 @@
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(60,15);
-    $pdf->Cell(80, 10,'3VWRP6BUXPM032593');
+    $pdf->Cell(80, 10,$Fila[27]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(2,17);
@@ -113,19 +125,19 @@
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(2,19.5);
-    $pdf->Cell(80, 10,'4');
+    $pdf->Cell(80, 10,$Fila[21]);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(25,19.5);
-    $pdf->Cell(80, 10,'AUTOMOVIL SEDAN');
+    $pdf->Cell(80, 10,$Fila[18]);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(40,19.5);
-    $pdf->Cell(80, 10,'Queretaro');
+    $pdf->Cell(80, 10,$Fila[29]);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(60,19.5);
-    $pdf->Cell(80, 10,'EL MARQUES');
+    $pdf->Cell(80, 10,$Fila[28]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(2,21.5);
@@ -181,39 +193,39 @@
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,28);
-    $pdf->Cell(80, 10,'QR-051-QR-051 ECOSISTEMA VEHIC...');
+    $pdf->Cell(80, 10,$Fila[11]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,30);
-    $pdf->Cell(80, 10,'--- - Linea: 1');
+    $pdf->Cell(80, 10,$Fila[2]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,32);
-    $pdf->Cell(80, 10,'ALEJANDRO PADILLA ALVAREZ');
+    $pdf->Cell(80, 10,$Fila[3]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,34);
-    $pdf->Cell(80, 10,'29/07/2023');
+    $pdf->Cell(80, 10,$Fila[4]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,36);
-    $pdf->Cell(80, 10,'11:48');
+    $pdf->Cell(80, 10,$Fila[5]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,38);
-    $pdf->Cell(80, 10,'11:48');
+    $pdf->Cell(80, 10,$Fila[6]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,40);
-    $pdf->Cell(80, 10,'Vehiculo Nuevo');
+    $pdf->Cell(80, 10,$Fila[7]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,42);
-    $pdf->Cell(80, 10,'2320145528');
+    $pdf->Cell(80, 10,$Fila[8]);
 
     $pdf->SetFont('Arial','',3);
     $pdf->SetXY(25,44);
-    $pdf->Cell(75, 10,'2');
+    $pdf->Cell(75, 10,$Fila[9]);
 
     $pdf->SetFont('Arial','',4);
     $pdf->SetXY(75,34);
@@ -245,6 +257,10 @@
     $pdf->SetXY(120,44);
     $pdf->Cell(80, 10,'CENTRO DE VERIFICACION VEHICULAR');
 
-
-    $pdf->Output('I');
+    $Folio = $Fila[0];
+    $ruta = "./pdfGenerados/$Folio.pdf";
+    
+    // Guarda el archivo en la ruta especificada
+    $pdf->Output();
+    $pdf->Output('F', $ruta);
 ?>

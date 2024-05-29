@@ -1,180 +1,117 @@
+<?php
+/*
+session_start();
+$varssesion = $_SESSION['usuario'];
+
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización';
+  die();
+}
+
+echo "Bienvenido, " . $_SESSION['usuario'];
+*/
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menú</title>
+  <title>Menú Usuario</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link rel="stylesheet" href="./styles/styles.css">
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #fafafa;
+      font-family: Arial, sans-serif; /* Cambiar el tipo de letra aquí */
     }
-
     .wrapper {
       display: flex;
-      width: 100%;
-      align-items: stretch;
     }
-
-    #sidebar {
+    nav#sidebar {
+      background: #343a40;
       min-width: 250px;
       max-width: 250px;
-      background: #7386D5;
-      color: #fff;
-      transition: all 0.3s;
+      height: 100vh;
+      color: white;
+      position: relative; /* Añadido */
+      z-index: 1; /* Añadido */
     }
-
-    #sidebar .sidebar-header {
+    .sidebar-header {
       padding: 20px;
-      background: #6d7fcc;
+      background: #343a40;
     }
-
-    #sidebar ul.components {
-      padding: 20px 0;
-      border-bottom: 1px solid #47748b;
-    }
-
-    #sidebar ul p {
-      color: #fff;
-      padding: 10px;
-    }
-
-    #sidebar ul li a {
-      padding: 10px;
-      font-size: 1.1em;
-      display: block;
-    }
-
-    #sidebar ul li a:hover {
-      color: #7386D5;
-      background: #fff;
-    }
-
-    #sidebar ul li.active > a, a[aria-expanded="true"] {
-      color: #fff;
-      background: #6d7fcc;
-    }
-
-    a[data-toggle="collapse"] {
-      position: relative;
-    }
-
-    a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-      content: '\e259';
-      display: block;
-      position: absolute;
-      right: 20px;
-      font-family: 'Glyphicons Halflings';
-      font-size: 0.6em;
-    }
-
-    a[aria-expanded="true"]::before {
-      content: '\e260';
-    }
-
-    ul ul a {
-      font-size: 0.9em !important;
-      padding-left: 30px !important;
-      background: #6d7fcc;
-    }
-
-    #content {
-      width: 100%;
-      padding: 20px;
-      min-height: 100vh;
-      transition: all 0.3s;
-    }
-
-    .line {
-      width: 100%;
-      height: 1px;
-      border-bottom: 1px dashed #ddd;
-      margin: 40px 0;
-    }
-
-    @media (max-width: 768px) {
-      #sidebar {
-        margin-left: -250px;
-      }
-      #sidebar.active {
-        margin-left: 0;
-      }
-      #sidebarCollapse span {
-        display: none;
-      }
-    }
-
     .menu ul {
-      list-style-type: none;
+      list-style: none;
+      padding: 0;
     }
-
-    .menu ul li {
+    .menu li {
       position: relative;
     }
-
-    .menu ul li input {
+    .menu input[type="checkbox"] {
       display: none;
     }
-
-    .menu ul li label {
+    .menu label {
       display: block;
       padding: 10px;
-      background: #7386D5;
       color: white;
       cursor: pointer;
-      border-bottom: 1px solid #47748b;
+      background: #62869D; /* Nuevo color */
     }
-
-    .menu ul li label:hover {
-      background: #6d7fcc;
-    }
-
     .menu ul ul {
       display: none;
+      position: absolute;
+      top: 0;
+      left: 100%;
+      background-color: #62869D; /* Cambiar solo el fondo */
+      flex-direction: column;
+      border-radius: 0 0 10px 10px;
+      z-index: 2; /* Añadido */
     }
-
-    .menu ul li input:checked ~ ul {
-      display: block;
+    .menu input[type="checkbox"]:checked + label + ul {
+      display: flex;
     }
-
-    .menu ul ul li a {
-      display: block;
-      padding: 10px;
-      background: #6d7fcc;
-      color: white;
-      border-bottom: 1px solid #47748b;
+    .menu ul ul li {
+      margin: 0;
+    }
+    .menu a {
+      color: white; /* Mantener el color del texto */
       text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+      background: #343a40;
     }
-
-    .menu ul ul li a:hover {
-      background: #6d7fcc;
-    }
-
     #cerrarSesion {
-      padding: 10px 8px;
-      background-color: #7386D5;
+      background-color: #dc3545;
       color: white;
       border: none;
-      border-radius: 2px;
+      padding: 10px 20px;
       cursor: pointer;
-      transition: background-color 0.3s;
+      margin-top: 10px;
+      border-radius: 5px;
+      width: 100%;
+      transition: background-color 0.3s; /* Transición de color */
     }
-
     #cerrarSesion:hover {
-      background-color: #6d7fcc;
+      background-color: #62869D; /* Color azul al pasar el cursor */
     }
-
-    .titulo {
-      text-align: center; /* Centrar el texto */
-      width: 100%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    #content {
+      flex-grow: 1;
+      position: relative;
+      background: url('imagen.jpg') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.5;
+      z-index: 0; /* Añadido */
     }
-
     .titulo h1 {
-      font-size: 35px; /* Tamaño de la fuente */
-      color: #6d7fcc; /* Color del texto */
-      margin-bottom: 20px; /* Margen inferior */
+      font-size: 5em;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      position: relative; /* Añadido */
+      z-index: 1; /* Añadido */
     }
   </style>
 </head>
@@ -182,14 +119,14 @@
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
-      <div class="sidebar-header">
-        <h3>Menú</h3>
+      <div class="sidebar-header" style="background: #62869D;">
+        <h3>Menú</h3> <!-- Cambiar color aquí también -->
       </div>
       <div class="menu">
         <ul>
           <li>
-            <input type="checkbox" id="consultas" checked>
-            <label for="consultas">Consultar</label>
+            <input type="checkbox" id="consultas">
+            <label for="consultas" style="background: #62869D;">Consultar</label> <!-- Cambiar solo este color -->
             <ul>
               <li><a href="./Consultar/CAgentes.php">Agentes</a></li>
               <li><a href="./Consultar/CCentroVerificacion.php">Centro de Verificación</a></li>
@@ -204,6 +141,7 @@
               <li><a href="./Consultar/CVerificaciones.php">Verificaciones</a></li>
             </ul>
           </li>
+          <button id="cerrarSesion">Cerrar Sesión</button>
         </ul>
       </div>
     </nav>
@@ -214,18 +152,5 @@
       </div>
     </div>
   </div>
-
-  <!-- jQuery and Bootstrap Bundle (includes Popper) -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-  <script>
-    $(document).ready(function () {
-      $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-      });
-    });
-  </script>
 </body>
 </html>

@@ -1,9 +1,10 @@
 <?php
-require('fpdf.php');
+$id=$_POST['id'];
 
+require('fpdf.php');
 include("../../Controlador.php");
 $Con=Conectar();
-$SQL = "SELECT * FROM V_DatosTarjetaCirculacion WHERE Folio=10";
+$SQL = "SELECT * FROM V_DatosTarjetaCirculacion WHERE Folio=$id";
 $ResulSet=Ejecutar($Con, $SQL);
 $Fila=mysqli_fetch_row($ResulSet);
 Desconectar($Con);
@@ -34,27 +35,31 @@ $pdf->Cell(10,10,'PLACA', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(8.4,2);
-$pdf->Cell(10,10,'PARTICULAR', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[2], 0, 1, 'R');
+
+$pdf->SetFont('Arial', '', 5);
+$pdf->SetXY(26,2);
+$pdf->Cell(10,10,$Fila[5], 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(41,2);
-$pdf->Cell(10,10,'178035050', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[0], 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
-$pdf->SetXY(54,2);
-$pdf->Cell(10,10,'INDEFINIDA', 0, 1, 'R');
+$pdf->SetXY(53,2);
+$pdf->Cell(10,10,$Fila[3], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 6);
 $pdf->SetXY(70.5,2);
-$pdf->Cell(10,10,'2008/SU2943A', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[4], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(7,4);
 $pdf->Cell(10,10,'PROPIETARIO', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
-$pdf->SetXY(38,4);
-$pdf->Cell(10,10,'RESENDIZ GONZALEZ FRANCISCO', 0, 1, 'R');
+$pdf->SetXY(34,4);
+$pdf->Cell(10,10,$Fila[1], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(.4,8);
@@ -70,7 +75,7 @@ $pdf->Cell(10,10,'MODELO', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(11.7,10);
-$pdf->Cell(10,10,'REGF880125HN1', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[21], 0, 1, 'R'); #pendiente
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(5.8,12);
@@ -90,15 +95,19 @@ $pdf->Cell(10,10,'FOLIO', 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(57.5,17.5);
-$pdf->Cell(10,10,'A    16779305', 0, 1, 'R');
+$pdf->Cell(10,10,'A      '.$Fila[0], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(56.5,19);
 $pdf->Cell(10,10,'PLACA ANT', 0, 1, 'R');
 
+$pdf->SetFont('Arial', 'B', 4);
+$pdf->SetXY(56.5,20.5);
+$pdf->Cell(10,10,$Fila[7], 0, 1, 'R');
+
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(7,14);
-$pdf->Cell(10,10,'EL RINCON', 5, 1, 'R');
+$pdf->Cell(10,10,$Fila[22], 5, 1, 'R'); 
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(38.3,14);
@@ -110,23 +119,19 @@ $pdf->Cell(10,10,'2018/1056773', 5, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(40.5,10);
-$pdf->Cell(10,10,'1FTRCR14A6TPA47038', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[8], 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(52.6,10);
-$pdf->Cell(10,10,'1996', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[10], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(5,18);
 $pdf->Cell(10,10,'MUNICIPIO', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
-$pdf->SetXY(11.2,20);
-$pdf->Cell(10,10,'CADEREYTA DE', 0, 1, 'R');
-
-$pdf->SetFont('Arial', '', 5);
-$pdf->SetXY(5.1,21.7);
-$pdf->Cell(10,10,'MONTES', 0, 1, 'R');
+$pdf->SetXY(7,24);
+$pdf->Multicell(20,2,$Fila[20], 0);
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(16,23.5);
@@ -162,27 +167,27 @@ $pdf->Cell(10,10,'DE INSCRIPCION', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(28,32);
-$pdf->Cell(10,10,'ESTANDAR', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[16], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(31,23);
-$pdf->Cell(10,10,'4', 5, 1, 'R');
+$pdf->Cell(10,10,$Fila[11], 5, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(32,24.5);
-$pdf->Cell(10,10,'750', 5, 1, 'R');
+$pdf->Cell(10,10,$Fila[12], 5, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(31,26);
-$pdf->Cell(10,10,'2', 5, 1, 'R');
+$pdf->Cell(10,10,$Fila[13], 5, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(31,27.5);
-$pdf->Cell(10,10,'3', 5, 1, 'R');
+$pdf->Cell(10,10,$Fila[14], 5, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(31,29);
-$pdf->Cell(10,10,'1', 5, 1, 'R');
+$pdf->Cell(10,10,$Fila[15], 5, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 3);
 $pdf->SetXY(42,23);
@@ -206,15 +211,15 @@ $pdf->Cell(10,10,'RPA', 5, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(41,25);
-$pdf->Cell(10,10,'2', 5, 1, 'R');
+$pdf->Cell(10,10,$Fila[17], 5, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(41,27);
-$pdf->Cell(10,10,'9', 5, 1, 'R');
+$pdf->Cell(10,10,$Fila[18], 5, 1, 'R'); 
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(41.5,29);
-$pdf->Cell(10,10,'36', 5, 1, 'R');
+$pdf->Cell(10,10,$Fila[25], 5, 1, 'R'); 
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(61,23.5);
@@ -222,7 +227,7 @@ $pdf->Cell(10,10,'FECHA DE EXPEDICION', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(54,25);
-$pdf->Cell(10,10,'04-MAY-18', 0, 1, 'R');
+$pdf->Cell(10,10,'04-MAY-18', 0, 1, 'R'); //Pendiente
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(60.3,26.5);
@@ -241,12 +246,12 @@ $pdf->SetXY(59,31);
 $pdf->Cell(10,10,'NUMERO DE MOTOR', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
-$pdf->SetXY(58,32.5);
-$pdf->Cell(10,10,'HECHO EN USA', 0, 1, 'R');
+$pdf->SetXY(59,32.5);
+$pdf->Cell(10,10,$Fila[26], 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(3.3,32.4);
-$pdf->Cell(10,10,'VERDE', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[24], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(2.5,30.7);
@@ -254,7 +259,7 @@ $pdf->Cell(10,10,'COLOR', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(9,29.5);
-$pdf->Cell(10,10,'EXTRANJERO', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[23], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(2.8,27.8);
@@ -287,5 +292,10 @@ $pdf->Image('tarjetaCirculacion.jpg', 21, 49.2, 46);
 $pdf->SetXY(47,11);
 $pdf->Image('QR.png', 68, 35.2, 17);
 
+$Folio = $Fila[0];
+$ruta = "./pdfGenerados/$Folio.pdf";
+
+// Guarda el archivo en la ruta especificada
 $pdf->Output();
+$pdf->Output('F', $ruta);
 ?>
