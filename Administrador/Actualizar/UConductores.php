@@ -28,9 +28,10 @@
             font-weight: bold;
             color: #333;
         }
-        .form-container input[type="text"],
         .form-container input[type="number"],
-        .form-container input[type="date"] {
+        .form-container input[type="text"],
+        .form-container input[type="date"],
+        .form-container input[type="file"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -67,7 +68,7 @@
             $SQL = "SELECT * FROM Conductores WHERE Id = '$Id_Conductor';";
             $ResultSet = Ejecutar($Con, $SQL);
             $Fila = mysqli_fetch_row($ResultSet);
-            Desconectar($Con);
+            Desconectar($Con);        
         ?>
         <form method="post" enctype="multipart/form-data">
             <input type="hidden" id="Id_Conductor" name="Id_Conductor" value="<?php echo $_POST['Id_Conductor']; ?>">
@@ -118,7 +119,30 @@
             $fotoValida = false;
             $imagenFoto = "";
             if (isset($_FILES["Foto"]) && $_FILES["Foto"]["error"] == 0) {
-                // Procesamiento de la foto
+                $fileFoto = $_FILES["Foto"];
+                $nombreFoto = $fileFoto["name"];
+                $tipoFoto = $fileFoto["type"];
+                $ruta_provisionalFoto = $fileFoto["tmp_name"];
+                $sizeFoto = $fileFoto["size"];
+                $dimensionesFoto = getimagesize($ruta_provisionalFoto);
+
+                if (in_array($tipoFoto, $tiposPermitidos)) {
+                    // Verificar el tamaño (máximo 3MB)
+                    if ($sizeFoto <= 3 * 1024 * 1024) {
+                        $destinoFoto = $directorioFotos . $nombreFoto;
+                        if (move_uploaded_file($ruta_provisionalFoto, $destinoFoto)) {
+                            echo "La foto ha sido subida exitosamente.<br>";
+                            $fotoValida = true;
+                            $imagenFoto = $destinoFoto;
+                        } else {
+                            echo "Error al mover la foto.<br>";
+                        }
+                    } else {
+                        echo "Error, el tamaño máximo permitido para la foto es de 3MB.<br>";
+                    }
+                } else {
+                    echo "Error, la foto no es imagen válida.<br>";
+                }
             } else {
                 $fotoValida = true; // Si no se subió un archivo nuevo, mantener el existente
             }
@@ -127,16 +151,65 @@
             $firmaValida = false;
             $imagenFirma = "";
             if (isset($_FILES["Firma"]) && $_FILES["Firma"]["error"] == 0) {
-                // Procesamiento de la firma
+                $fileFirma = $_FILES["Firma"];
+                $nombreFirma = $fileFirma["name"];
+                $tipoFirma = $fileFirma["type"];
+                $ruta_provisionalFirma = $fileFirma["tmp_name"];
+                $sizeFirma = $fileFirma["size"];
+                $dimensionesFirma = getimagesize($ruta_provisionalFirma);
+
+                if (in_array($tipoFirma, $tiposPermitidos)) {
+                    // Verificar el tamaño (máximo 3MB)
+                    if ($sizeFirma <= 3 * 1024 * 1024) {
+                        $destinoFirma = $directorioFirmas . $nombreFirma;
+                        if (move_uploaded_file($ruta_provisionalFirma, $destinoFirma)) {
+                            echo "La firma ha sido subida exitosamente.<br>";
+                            $firmaValida = true;
+                            $imagenFirma = $destinoFirma;
+                        } else {
+                            echo "Error al mover la firma.<br>";
+                        }
+                    } else {
+                        echo "Error, el tamaño máximo permitido para la firma es de 3MB.<br>";
+                    }
+                } else {
+                    echo "Error, la firma no es una imagen válida.<br>";
+                }
             } else {
                 $firmaValida = true; // Si no se subió un archivo nuevo, mantener el existente
             }
 
             if ($fotoValida && $firmaValida) {
-                // Actualización de la base de datos
+                $Con = Conectar();
+                if ($imagenFoto != "" && $imagenFirma != "") {
+                    // Si hay una nueva foto y firma, actualizar con las nuevas imágenes
+                    $SQL = "UPDATE Conductores SET Nombre = '$Nombre', FechaNacimiento = '$FechaNacimiento', Foto = '$imagenFoto',
+                    Firma = '$imagenFirma', RFC = '$RFC', Domicilio = '$Domicilio', TipoSangre = '$TipoSangre', 
+                    Donador = '$Donador', CURP = '$CURP', IdDireccion = '$Id_Direccion' WHERE Id = '$Id_Conductor';";
+                } else if ($imagenFoto != "") {
+                    // Si hay una nueva foto, pero no nueva firma
+                    $SQL = "UPDATE Conductores SET Nombre = '$Nombre', FechaNacimiento = '$FechaNacimiento', Foto = '$imagenFoto',
+                    RFC = '$RFC', Domicilio = '$Domicilio', TipoSangre = '$TipoSangre', Donador = '$Donador', CURP = '$CURP', 
+                    IdDireccion = '$Id_Direccion' WHERE Id = '$Id_Conductor';";
+                } else if ($imagenFirma != "") {
+                    // Si hay una nueva firma, pero no nueva foto
+                    $SQL = "UPDATE Conductores SET Nombre = '$Nombre', FechaNacimiento = '$FechaNacimiento',
+                    Firma = '$imagenFirma', RFC = '$RFC', Domicilio = '$Domicilio', TipoSangre = '$TipoSangre', 
+                    Donador = '$Donador', CURP = '$CURP', IdDireccion = '$Id_Direccion' WHERE Id = '$Id_Conductor';";
+                } else {
+                    // Si no hay nuevas imágenes
+                    $SQL = "UPDATE Conductores SET Nombre = '$Nombre', FechaNacimiento = '$FechaNacimiento', RFC = '$RFC', 
+                    Domicilio = '$Domicilio', TipoSangre = '$TipoSangre', Donador = '$Donador', CURP = '$CURP', 
+                    IdDireccion = '$Id_Direccion' WHERE Id = '$Id_Conductor';";
+                }
+                $ResultSet = Ejecutar($Con, $SQL);
+                Desconectar($Con);
+                header("Location: UConductores.php");
             }
         }
         ?>
     </div>
 </body>
 </html>
+
+

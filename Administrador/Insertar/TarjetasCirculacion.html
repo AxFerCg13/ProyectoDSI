@@ -3,44 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario de Tarjetas de Circulación</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
+            padding: 20px;
+        }
+        .form-container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-container h3 {
+            margin-bottom: 20px;
+            color: #7386D5; /* Color lila */
+            text-align: center; /* Centrar el título */
+            font-size: 30px; /* Tamaño del título */
+            font-weight: normal; /* Sin negritas */
+        }
+        .form-container label {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .form-container input[type="submit"] {
+            background: #7386D5;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-container input[type="submit"]:hover {
+            background: #6d7fcc;
+        }
+    </style>
 </head>
 <body>
-    
-    <label> TrajetasCirculación </TarjetasCirculacion>
-    <form method="post" action="ITarjetasCirculacion.php">
-            <label> Folio </label>
+    <div class="form-container">
+        <h3>Formulario de Tarjetas de Circulación</h3>
+        <form method="post" action="ITarjetasCirculacion.php">
+            <label for="Folio">Folio</label>
             <input type="number" id="Folio" name="Folio">
             <br>
-            <label> Propietario </label>
-            <input type = "text" id = "Propietario" name = "Propietario">
+            <label for="Propietario">Propietario</label>
+            <input type="text" id="Propietario" name="Propietario">
             <br>
-            <label> Tipo de Servicio </label>
+            <label for="Tipo_Servicio">Tipo de Servicio</label>
             <input type="text" id="Tipo_Servicio" name="Tipo_Servicio">
             <br>
-            <label> Vigencia </label>
+            <label for="Vigencia">Vigencia</label>
             <input type="text" id="Vigencia" name="Vigencia">
             <br>
-            <label> Placa </label>
+            <label for="Placa">Placa</label>
             <input type="text" id="Placa" name="Placa">
             <br>
-            <label> Holograma </label>
+            <label for="Holograma">Holograma</label>
             <input type="text" id="Holograma" name="Holograma">
             <br>
-            <label> Oficina Expedidora </label>
+            <label for="Oficina_Expedidora">Oficina Expedidora</label>
             <input type="text" id="Oficina_Expedidora" name="Oficina_Expedidora">
             <br>
-            <label> Placa Anterior </label>
+            <label for="Placa_Anterior">Placa Anterior</label>
             <input type="text" id="Placa_Anterior" name="Placa_Anterior">
             <br>
-            <label> ID del Vehiculo </label>
+            <label for="ID_Vehiculo">ID del Vehículo</label>
             <input type="number" id="ID_Vehiculo" name="ID_Vehiculo">
             <br>
-            <label> ID del Propietario </label>
+            <label for="ID_Propietario">ID del Propietario</label>
             <input type="number" id="ID_Propietario" name="ID_Propietario">
             <br>
             <input type="submit">
-    </form>
-
+        </form>
+    </div>
 </body>
 </html>
