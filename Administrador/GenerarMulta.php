@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="id">ID de Multa:</label>
         <input type="text" class="form-control" id="id" name="id" required>
       </div>
-      <button type="submit" class="btn btn-primary">Generar PDF</button>
+      <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
   </div>
 
