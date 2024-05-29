@@ -1,17 +1,17 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Verificar si se recibió un ID de tarjeta de circulación
+    // Verificar si se recibió un ID de licencia
     if (isset($_POST['id']) && !empty($_POST['id'])) {
         $id = $_POST['id'];
 
-        // Aquí va el código para generar el PDF de la tarjeta de circulación utilizando el ID recibido
+        // Aquí va el código para generar el PDF de la licencia utilizando el ID recibido
 
         // Redireccionar al usuario de vuelta al formulario después de generar el PDF
-        header("Location: ./GenerarTarjetaCirculacion.php?success=true");
+        header("Location: ./GenerarLicencia.php?success=true");
         exit();
     } else {
-        // Si no se recibió un ID de tarjeta de circulación, mostrar un mensaje de error
-        echo "Error: Debes proporcionar un ID de tarjeta de circulación válido.";
+        // Si no se recibió un ID de licencia, mostrar un mensaje de error
+        echo "Error: Debes proporcionar un ID de licencia válido.";
     }
 }
 ?>
@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Generar Tarjeta de Circulación</title>
+  <title>Generar Licencia</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <style>
     body {
@@ -67,10 +67,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
   <div class="container">
-    <h1>Generar Tarjeta de Circulación</h1>
-    <form action="../Documentos/DOTarjetaCirculacion/PdfTarjetaCirculacion.php" method="POST">
+    <h1>Generar Licencia</h1>
+    <form action="../../Documentos/DOLicencia/PdfLicencia.php" method="POST">
       <div class="form-group">
-        <label for="id">ID de Tarjeta de Circulación:</label>
+        <label for="id">ID de Licencia:</label>
         <input type="text" class="form-control" id="id" name="id" required>
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
