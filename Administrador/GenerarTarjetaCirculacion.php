@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <div class="container">
     <h1>Generar Tarjeta de Circulación</h1>
-    <form action="generarTarjetaCirculacion.php" method="POST">
+    <form action="../Documentos/DOTarjetaCirculacion/PdfTarjetaCirculacion.php" method="POST">
       <div class="form-group">
         <label for="id">ID de Tarjeta de Circulación:</label>
         <input type="text" class="form-control" id="id" name="id" required>
