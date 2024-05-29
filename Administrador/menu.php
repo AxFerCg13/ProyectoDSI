@@ -77,7 +77,6 @@ echo "Bienvenido, " . $_SESSION['usuario'];
               <li><a href="./Eliminar/DDirecciones.php">Direcciones</a></li>
               <li><a href="./Eliminar/DLicencias.php">Licencias</a></li>
               <li><a href="./Eliminar/DMultas.php">Multas</a></li>
-              <li><a href="./Eliminar/DPropietarios.php">Propietarios</a></li>
               <li><a href="./Eliminar/DTarjetasCircuclacion.php">Tarjetas de circulación</a></li>
               <li><a href="./Eliminar/DTenencias.php">Tenencias</a></li>
               <li><a href="./Eliminar/DVehiculoes.php">Vehículos</a></li>
@@ -101,14 +100,22 @@ echo "Bienvenido, " . $_SESSION['usuario'];
               <li><a href="./Actualizar/UVerificaciones.php">Verificaciones</a></li>
             </ul>
           </li>
+          <li>
+            <input type="checkbox" id="generarDocumentos">
+            <label for="generarDocumentos">Generar Documentos</label>
+            <ul>
+              <li><a href="./GenerarLicencia.php">Licencias</a></li>
+              <li><a href="./GenerarMulta.php">Multas</a></li>
+              <li><a href="./GenerarTarjetaCirculacion.php">Tarjetas de circulación</a></li>
+              <li><a href="./GenerarTarjetaVerificacion.php">Tarjetas de Verificación</a></li>
+            </ul>
+          </li>
           <button id="cerrarSesion">Cerrar Sesión</button>
         </ul>
-    
+      </div>
+    </nav>
     <!-- Page Content -->
     <div id="content">
-          </button>
-        </div>
-      </nav>
       <div class="titulo">
         <h1>Administrador</h1>
       </div>
