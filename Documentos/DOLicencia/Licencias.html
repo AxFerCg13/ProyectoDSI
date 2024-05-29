@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generar Licencia</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <link rel="stylesheet" href="../styles/styles.css">
+  <style>
+    body {
+      background-color: #fafafa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 80px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      color: #6d7fcc;
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    label {
+      color: #101111;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      width: 50%; /* Ajusta este valor para cambiar el tamaño del campo de entrada */
+      margin: 0 auto; /* Centrar el campo de entrada */
+    }
+
+    .btn-primary {
+      background-color: #6d7fcc;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #5a6baf;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 class="my-4">Generar Licencia</h2>
+    <form action="generarLicencia.php" method="post">
+      <div class="form-group">
+        <label for="id">ID de Licencia:</label>
+        <input type="text" class="form-control" id="id" name="id" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+
+  <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
