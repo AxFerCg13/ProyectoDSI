@@ -6,7 +6,7 @@ require('fpdf.php');
 
 include("../Controlador.php");
 $Con=Conectar();
-$SQL = "SELECT * FROM V_DatosLicencia WHERE NumLicencia='id'";
+$SQL = "SELECT * FROM V_DatosLicencia WHERE NumLicencia='$id'";
 $ResulSet=Ejecutar($Con, $SQL);
 $Fila=mysqli_fetch_row($ResulSet);
 Desconectar($Con);

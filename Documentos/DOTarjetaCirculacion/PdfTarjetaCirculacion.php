@@ -1,9 +1,10 @@
 <?php
-require('fpdf.php');
+$id=$_POST['id'];
 
+require('fpdf.php');
 include("../../Controlador.php");
 $Con=Conectar();
-$SQL = "SELECT * FROM V_DatosTarjetaCirculacion WHERE Folio=10";
+$SQL = "SELECT * FROM V_DatosTarjetaCirculacion WHERE Folio=$id";
 $ResulSet=Ejecutar($Con, $SQL);
 $Fila=mysqli_fetch_row($ResulSet);
 Desconectar($Con);
@@ -74,7 +75,7 @@ $pdf->Cell(10,10,'MODELO', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(11.7,10);
-$pdf->Cell(10,10,'REGF880125HN1', 0, 1, 'R'); #pendiente
+$pdf->Cell(10,10,$Fila[21], 0, 1, 'R'); #pendiente
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(5.8,12);
@@ -106,7 +107,7 @@ $pdf->Cell(10,10,$Fila[7], 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(7,14);
-$pdf->Cell(10,10,'EL RINCON', 5, 1, 'R'); #pendiente
+$pdf->Cell(10,10,$Fila[22], 5, 1, 'R'); 
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(38.3,14);
@@ -118,11 +119,11 @@ $pdf->Cell(10,10,'2018/1056773', 5, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(40.5,10);
-$pdf->Cell(10,10,'1FTRCR14A6TPA47038', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[8], 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(52.6,10);
-$pdf->Cell(10,10,'1996', 0, 1, 'R'); #Pendiente
+$pdf->Cell(10,10,$Fila[10], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(5,18);
@@ -166,7 +167,7 @@ $pdf->Cell(10,10,'DE INSCRIPCION', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(28,32);
-$pdf->Cell(10,10,'ESTANDAR', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[16], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(31,23);
@@ -214,11 +215,11 @@ $pdf->Cell(10,10,$Fila[17], 5, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(41,27);
-$pdf->Cell(10,10,'9', 5, 1, 'R'); // pendiente
+$pdf->Cell(10,10,$Fila[18], 5, 1, 'R'); 
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(41.5,29);
-$pdf->Cell(10,10,'36', 5, 1, 'R'); // pendiente
+$pdf->Cell(10,10,$Fila[25], 5, 1, 'R'); 
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(61,23.5);
@@ -245,12 +246,12 @@ $pdf->SetXY(59,31);
 $pdf->Cell(10,10,'NUMERO DE MOTOR', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
-$pdf->SetXY(58,32.5);
-$pdf->Cell(10,10,'HECHO EN USA', 0, 1, 'R');
+$pdf->SetXY(59,32.5);
+$pdf->Cell(10,10,$Fila[26], 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(3.3,32.4);
-$pdf->Cell(10,10,'VERDE', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[24], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(2.5,30.7);
@@ -258,7 +259,7 @@ $pdf->Cell(10,10,'COLOR', 0, 1, 'R');
 
 $pdf->SetFont('Arial', '', 5);
 $pdf->SetXY(9,29.5);
-$pdf->Cell(10,10,'EXTRANJERO', 0, 1, 'R');
+$pdf->Cell(10,10,$Fila[23], 0, 1, 'R');
 
 $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(2.8,27.8);

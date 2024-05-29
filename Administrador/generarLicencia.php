@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <div class="container">
     <h1>Generar Licencia</h1>
-    <form action="generarLicencia.php" method="POST">
+    <form action="../Documentos/DOLicencia/PdfLicencia.php" method="POST">
       <div class="form-group">
         <label for="id">ID de Licencia:</label>
         <input type="text" class="form-control" id="id" name="id" required>
