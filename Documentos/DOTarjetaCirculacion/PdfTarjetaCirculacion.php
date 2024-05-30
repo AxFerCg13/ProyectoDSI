@@ -292,5 +292,10 @@ $pdf->Image('tarjetaCirculacion.jpg', 21, 49.2, 46);
 $pdf->SetXY(47,11);
 $pdf->Image('QR.png', 68, 35.2, 17);
 
+$Folio = $Fila[0];
+$ruta = "./pdfGenerados/$Folio.pdf";
+
+// Guarda el archivo en la ruta especificada
 $pdf->Output();
+$pdf->Output('F', $ruta);
 ?>

@@ -189,10 +189,10 @@ echo "Bienvenido, " . $_SESSION['usuario'];
             <input type="checkbox" id="generarDocumentos">
             <label for="generarDocumentos">Generar Documentos</label>
             <ul>
-              <li><a href="./GenerarLicencia.php">Licencias</a></li>
-              <li><a href="./GenerarMulta.php">Multas</a></li>
-              <li><a href="./GenerarTarjetaCirculacion.php">Tarjetas de circulación</a></li>
-              <li><a href="./GenerarTarjetaVerificacion.php">Tarjetas de Verificación</a></li>
+              <li><a href="./Generar/GenerarLicencia.php">Licencias</a></li>
+              <li><a href="./Generar/GenerarMulta.php">Multas</a></li>
+              <li><a href="./Generar/GenerarTarjetaCirculacion.php">Tarjetas de circulación</a></li>
+              <li><a href="./Generar/GenerarTarjetaVerificacion.php">Tarjetas de Verificación</a></li>
             </ul>
           </li>
           <button id="cerrarSesion">Cerrar Sesión</button>

@@ -183,10 +183,10 @@ $pdf->Cell(10,10,'Seguridad', 0, 1, 'I');
 $pdf->SetXY(44.5, 74.1);
 $pdf->Cell(10,10,'Ciudadana', 0, 1, 'I');
 
+$Folio = $Fila[0];
+$ruta = "./pdfGenerados/$Folio.pdf";
 
-
-
-
-
+// Guarda el archivo en la ruta especificada
 $pdf->Output();
+$pdf->Output('F', $ruta);
 ?>
