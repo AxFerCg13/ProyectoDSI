@@ -1,4 +1,5 @@
 <?php
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si se recibió un ID de multa
     if (isset($_POST['id']) && !empty($_POST['id'])) {

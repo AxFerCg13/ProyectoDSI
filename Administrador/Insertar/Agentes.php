@@ -1,9 +1,20 @@
+<?php
+
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+$varssesion = $_SESSION['usuario'];
+// Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
+  die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Tenencias</title>
+    <title>Formulario de Agentes</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -22,8 +33,8 @@
             margin-bottom: 20px;
             color: #7386D5; /* Color lila */
             text-align: center; /* Centrar el título */
-            font-size: 30px; /* Tamaño del título */
-            font-weight: normal; /* Sin negritas */
+            font-size: 30px; /* Ajuste de tamaño */
+            font-weight: normal; /* Quitando negritas */
         }
         .form-container label {
             font-weight: bold;
@@ -32,7 +43,7 @@
         }
         .form-container input[type="text"],
         .form-container input[type="number"],
-        .form-container input[type="date"] {
+        .form-container input[type="file"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -56,31 +67,19 @@
 </head>
 <body>
     <div class="form-container">
-        <h3>Formulario de Tenencias</h3>
-        <form method="post" action="ITenencias.php">
+        <h3>Formulario de Agentes</h3>
+        <form method="post" action="IAgentes.php" enctype="multipart/form-data">
             <label for="ID">ID</label>
             <input type="number" id="ID" name="ID">
             <br>
-            <label for="No_Tenencia">Número de Tenencia</label>
-            <input type="text" id="No_Tenencia" name="No_Tenencia">
+            <label for="Nombre">Nombre</label>
+            <input type="text" id="Nombre" name="Nombre">
             <br>
-            <label for="Fecha_Emision">Fecha de Emisión</label>
-            <input type="date" id="Fecha_Emision" name="Fecha_Emision">
+            <label for="Firma">Firma</label>
+            <input type="file" id="Firma" name="Firma">
             <br>
-            <label for="Fecha_Vencimiento">Fecha de Vencimiento</label>
-            <input type="date" id="Fecha_Vencimiento" name="Fecha_Vencimiento">
-            <br>
-            <label for="Importe">Importe</label>
-            <input type="number" id="Importe" name="Importe">
-            <br>
-            <label for="Estado_Pago">Estado de Pago</label>
-            <input type="text" id="Estado_Pago" name="Estado_Pago">
-            <br>
-            <label for="No_Transaccion">Número de Transacción</label>
-            <input type="text" id="No_Transaccion" name="No_Transaccion">
-            <br>
-            <label for="FolioTarjetaCirculacion">Folio Tarjeta de Circulación</label>
-            <input type="number" id="FolioTarjetaCirculacion" name="FolioTarjetaCirculacion">
+            <label for="Grupo">Grupo</label>
+            <input type="text" id="Grupo" name="Grupo">
             <br>
             <input type="submit">
         </form>

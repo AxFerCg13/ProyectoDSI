@@ -1,9 +1,20 @@
+<?php
+
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+$varssesion = $_SESSION['usuario'];
+// Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
+  die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Centro de Verificación</title>
+    <title>Formulario de Tenencias</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -31,7 +42,8 @@
             font-size: 16px;
         }
         .form-container input[type="text"],
-        .form-container input[type="number"] {
+        .form-container input[type="number"],
+        .form-container input[type="date"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -55,19 +67,31 @@
 </head>
 <body>
     <div class="form-container">
-        <h3>Formulario de Centro de Verificación</h3>
-        <form method="get" action="ICentroVerificacion.php">
-            <label for="Num_Centro">Número de Centro</label>
-            <input type="number" id="Num_Centro" name="Num_Centro">
+        <h3>Formulario de Tenencias</h3>
+        <form method="post" action="ITenencias.php">
+            <label for="ID">ID</label>
+            <input type="number" id="ID" name="ID">
             <br>
-            <label for="Municipio">Municipio</label>
-            <input type="text" id="Municipio" name="Municipio">
+            <label for="No_Tenencia">Número de Tenencia</label>
+            <input type="text" id="No_Tenencia" name="No_Tenencia">
             <br>
-            <label for="Entidad">Entidad</label>
-            <input type="text" id="Entidad" name="Entidad">
+            <label for="Fecha_Emision">Fecha de Emisión</label>
+            <input type="date" id="Fecha_Emision" name="Fecha_Emision">
             <br>
-            <label for="Nombre">Nombre</label>
-            <input type="text" id="Nombre" name="Nombre">
+            <label for="Fecha_Vencimiento">Fecha de Vencimiento</label>
+            <input type="date" id="Fecha_Vencimiento" name="Fecha_Vencimiento">
+            <br>
+            <label for="Importe">Importe</label>
+            <input type="number" id="Importe" name="Importe">
+            <br>
+            <label for="Estado_Pago">Estado de Pago</label>
+            <input type="text" id="Estado_Pago" name="Estado_Pago">
+            <br>
+            <label for="No_Transaccion">Número de Transacción</label>
+            <input type="text" id="No_Transaccion" name="No_Transaccion">
+            <br>
+            <label for="FolioTarjetaCirculacion">Folio Tarjeta de Circulación</label>
+            <input type="number" id="FolioTarjetaCirculacion" name="FolioTarjetaCirculacion">
             <br>
             <input type="submit">
         </form>

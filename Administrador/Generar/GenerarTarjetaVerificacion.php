@@ -1,4 +1,12 @@
 <?php
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+$varssesion = $_SESSION['usuario'];
+// Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
+  die();
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si se recibió un ID de tarjeta de verificación
     if (isset($_POST['id']) && !empty($_POST['id'])) {

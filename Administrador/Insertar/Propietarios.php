@@ -1,9 +1,20 @@
+<?php
+
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+$varssesion = $_SESSION['usuario'];
+// Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
+  die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Agentes</title>
+    <title>Formulario de Propietarios</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -22,8 +33,8 @@
             margin-bottom: 20px;
             color: #7386D5; /* Color lila */
             text-align: center; /* Centrar el título */
-            font-size: 30px; /* Ajuste de tamaño */
-            font-weight: normal; /* Quitando negritas */
+            font-size: 30px; /* Tamaño del título */
+            font-weight: normal; /* Sin negritas */
         }
         .form-container label {
             font-weight: bold;
@@ -31,8 +42,7 @@
             font-size: 16px;
         }
         .form-container input[type="text"],
-        .form-container input[type="number"],
-        .form-container input[type="file"] {
+        .form-container input[type="number"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -56,19 +66,22 @@
 </head>
 <body>
     <div class="form-container">
-        <h3>Formulario de Agentes</h3>
-        <form method="post" action="IAgentes.php" enctype="multipart/form-data">
-            <label for="ID">ID</label>
-            <input type="number" id="ID" name="ID">
+        <h3>Formulario de Propietarios</h3>
+        <form method="post" action="IPoropitarios.php">
+            <label for="Id_Propietarios">Id Propietarios</label>
+            <input type="number" id="Id_Propietarios" name="Id_Propietarios">
             <br>
             <label for="Nombre">Nombre</label>
             <input type="text" id="Nombre" name="Nombre">
             <br>
-            <label for="Firma">Firma</label>
-            <input type="file" id="Firma" name="Firma">
+            <label for="Direccion">Dirección</label>
+            <input type="text" id="Direccion" name="Direccion">
             <br>
-            <label for="Grupo">Grupo</label>
-            <input type="text" id="Grupo" name="Grupo">
+            <label for="RFC">RFC</label>
+            <input type="text" id="RFC" name="RFC">
+            <br>
+            <label for="Id_Direccion">Id Dirección</label>
+            <input type="number" id="Id_Direccion" name="Id_Direccion">
             <br>
             <input type="submit">
         </form>
