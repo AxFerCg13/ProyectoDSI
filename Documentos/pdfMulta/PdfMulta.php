@@ -1,9 +1,11 @@
 <?php
+$id=$_POST['id'];
+
 //OBTENER LOS DATOS DESDE LA VISTA
 include ("Controlador.php");
 
 $Con = Conectar();
-$SQL = "SELECT * FROM v_datosmulta WHERE Folio = 6";
+$SQL = "SELECT * FROM v_datosmulta WHERE Folio = $id";
 $ResultSet = Ejecutar($Con, $SQL);
 $Fila = mysqli_fetch_row($ResultSet);
 Desconectar($Con);
@@ -189,7 +191,7 @@ $pdf->Cell(35.4, 8, $Fila[16], 'BR', 1, 'L');//Linea (SI TABLA VEHICULOS)
 $pdf->SetXY(5.5, 134.7);
 $pdf->Cell(27, 8, $Fila[17], 'BL', 1, 'L');//Año (SI TABLA VEHICULOS)
 $pdf->SetXY(32.7, 134.7);
-$pdf->Cell(23, 8, $Fila[18], 'B', 1, 'L');//Color (SI TABLA VEHICULOS)
+$pdf->Cell(23, 8, 'Rojo', 'B', 1, 'L');//Color (SI TABLA VEHICULOS)
 $pdf->SetXY(55.9, 134.7);
 $pdf->Cell(32, 8, $Fila[19], 'BR', 1, 'L');//Numero tarjeta circulacion (SI TABLA TARJETAS)
 $pdf->SetXY(5.5, 142.9);
@@ -197,7 +199,7 @@ $pdf->Cell(21, 8, $Fila[04], 'BL', 1, 'L');//Numero de placas (SI TABLA TARJETAS
 $pdf->SetXY(26.7, 142.9);
 $pdf->Cell(36, 8, $Fila[19], 'B', 1, 'L');//No. de serie del vehciulo (SI TABLA VEHICULOS)
 $pdf->SetXY(62.9, 142.9);
-$pdf->Cell(25, 8, $Fila[20], 'BR', 1, 'L');//Estado de procedencia (SI TABLA VEHICULOS)
+$pdf->Cell(25, 8, 'Queretaro', 'BR', 1, 'L');//Estado de procedencia (SI TABLA VEHICULOS)
 $pdf->SetXY(88.1, 134.7);
 $pdf->Cell(23.2, 16.2, $Fila[9], 'BR', 1, 'C');//Servicio (SI TABLA TARJETAS)
 
@@ -237,7 +239,7 @@ $pdf->Cell(105.8, 25, '', 'BLR', 1, 'L');
 $pdf->SetXY(5.5, 156);
 $pdf->Cell(105.8, 8, 'Con fundamento en (los) articulo(s)', '0', 1, 'L');
 $pdf->SetXY(46.4, 157.5);
-$pdf->Cell(9.8, 4, $Fila[2], 'B', 1, 'C');//Fundamento articulo SI
+$pdf->Cell(9.8, 4, '561', 'B', 1, 'C');//Fundamento articulo SI
 $pdf->SetXY(56.5, 156);
 $pdf->Cell(105.8, 8, 'del Reglamento de la Ley de Transito para el', '0', 1, 'L');
 $pdf->SetXY(5.5, 159);
@@ -385,11 +387,46 @@ $pdf->SetXY(5.5, 299.2);
 $pdf->Cell(105.8, 6, '', 'B', 0 , 'L');
 $pdf->SetAutoPageBreak(false);
 
-
-
-
-
 $pdf->Output();
 
+$Folio = $Fila[1];
+    $ruta = "$Folio.pdf";
+    
+    // Guarda el archivo en la ruta especificada
+    $pdf->Output();
+    $pdf->Output('F');
+
+    $Manejador = fopen("$Folio.xml", "w+");
+    fwrite($Manejador, "Datos de Multas\n");
+fwrite($Manejador, "Hora: $Fila[0]\n");
+fwrite($Manejador, "Folio: $Fila[1]\n");
+fwrite($Manejador, "FunSdamento Multa: $Fila[2]\n");
+fwrite($Manejador, "Calle: $Fila[3]\n");
+fwrite($Manejador, "Numero: $Fila[4]\n");
+fwrite($Manejador, "Código Postal: $Fila[5]\n");
+fwrite($Manejador, "Localidad: $Fila[6]\n");
+fwrite($Manejador, "Municipio: $Fila[7]\n");
+fwrite($Manejador, "Nombre Conductor: $Fila[8]\n");
+fwrite($Manejador, "Fecha de Nacimiento: $Fila[9]\n");
+fwrite($Manejador, "Domicilio Conductor: $Fila[10]\n");
+fwrite($Manejador, "Número de Licencia: $Fila[11]\n");
+fwrite($Manejador, "Tipo de Licencia: $Fila[12]\n");
+fwrite($Manejador, "Restricción Licencia: $Fila[13]\n");
+fwrite($Manejador, "Tipo de Servicio: $Fila[14]\n");
+fwrite($Manejador, "Marca: $Fila[15]\n");
+fwrite($Manejador, "Línea: $Fila[16]\n");
+fwrite($Manejador, "Año del Vehículo: $Fila[17]\n");
+fwrite($Manejador, "Color: $Fila[18]\n");
+fwrite($Manejador, "Número de Serie: $Fila[19]\n");
+fwrite($Manejador, "Estado de Procedencia: $Fila[20]\n");
+fwrite($Manejador, "Uso del Vehículo: $Fila[21]\n");
+fwrite($Manejador, "Nombre del Agente: $Fila[22]\n");
+fwrite($Manejador, "ID del Agente: $Fila[23]\n");
+fwrite($Manejador, "Grupo del Agente: $Fila[24]\n");
+fwrite($Manejador, "Firma del Agente: $Fila[25]\n");
+fwrite($Manejador, "Observación: $Fila[26]\n");
+fwrite($Manejador, "Calificación de la Boleta: $Fila[27]\n");
+
+    fclose($Manejador);
 
 ?>

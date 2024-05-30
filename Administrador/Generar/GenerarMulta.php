@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <div class="container">
     <h1>Generar Multa</h1>
-    <form action="generarMulta.php" method="POST">
+    <form action="../../Documentos/pdfMulta/pdfMulta.php" method="POST">
       <div class="form-group">
         <label for="id">ID de Multa:</label>
         <input type="text" class="form-control" id="id" name="id" required>
