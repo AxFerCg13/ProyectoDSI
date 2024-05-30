@@ -1,17 +1,3 @@
-<?php
-/*
-session_start();
-$varssesion = $_SESSION['usuario'];
-
-if ($varssesion == NULL || $varssesion == '') {
-  echo 'Usted no tiene autorización';
-  die();
-}
-
-echo "Bienvenido, " . $_SESSION['usuario'];
-*/
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -39,7 +25,7 @@ echo "Bienvenido, " . $_SESSION['usuario'];
     }
     .sidebar-header {
       padding: 20px;
-      background: #343a40;
+      background: #4F78CB; /* Nuevo color */
     }
     .menu ul {
       list-style: none;
@@ -56,14 +42,14 @@ echo "Bienvenido, " . $_SESSION['usuario'];
       padding: 10px;
       color: white;
       cursor: pointer;
-      background: #62869D; /* Nuevo color */
+      background: #4F78CB; /* Nuevo color */
     }
     .menu ul ul {
       display: none;
       position: absolute;
       top: 0;
       left: 100%;
-      background-color: #62869D; /* Cambiar solo el fondo */
+      background-color: #4F78CB; /* Cambiar solo el fondo */
       flex-direction: column;
       border-radius: 0 0 10px 10px;
       z-index: 2; /* Añadido */
@@ -74,12 +60,12 @@ echo "Bienvenido, " . $_SESSION['usuario'];
     .menu ul ul li {
       margin: 0;
     }
-    .menu a {
+    .menu ul ul a {
       color: white; /* Mantener el color del texto */
       text-decoration: none;
       padding: 10px 20px;
       display: block;
-      background: #343a40;
+      background: #4F78CB; /* Mismo color que el botón de consultar */
     }
     #cerrarSesion {
       background-color: #dc3545;
@@ -93,7 +79,7 @@ echo "Bienvenido, " . $_SESSION['usuario'];
       transition: background-color 0.3s; /* Transición de color */
     }
     #cerrarSesion:hover {
-      background-color: #62869D; /* Color azul al pasar el cursor */
+      background-color: #4F78CB; /* Color azul al pasar el cursor */
     }
     #content {
       flex-grow: 1;
@@ -119,14 +105,14 @@ echo "Bienvenido, " . $_SESSION['usuario'];
   <div class="wrapper">
     <!-- Sidebar  -->
     <nav id="sidebar">
-      <div class="sidebar-header" style="background: #62869D;">
+      <div class="sidebar-header">
         <h3>Menú</h3> <!-- Cambiar color aquí también -->
       </div>
       <div class="menu">
         <ul>
           <li>
             <input type="checkbox" id="consultas">
-            <label for="consultas" style="background: #62869D;">Consultar</label> <!-- Cambiar solo este color -->
+            <label for="consultas">Consultar</label> <!-- Cambiar solo este color -->
             <ul>
               <li><a href="./Consultar/CAgentes.php">Agentes</a></li>
               <li><a href="./Consultar/CCentroVerificacion.php">Centro de Verificación</a></li>
