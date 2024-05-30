@@ -1,6 +1,6 @@
 <?php
     // Abrir 
-    $Manejador=fopen("Datos1.txt", "a"); // Devuelve un manejador de archivo
+    $Manejador=fopen("Datos1.xml", "a+"); // Devuelve un manejador de archivo
 
     // Lectura de caracter
     //$Caracter=fgetc($Manejador);

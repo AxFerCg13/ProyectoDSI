@@ -263,4 +263,44 @@ Desconectar($Con);
     // Guarda el archivo en la ruta especificada
     $pdf->Output();
     $pdf->Output('F', $ruta);
+
+    $Manejador = fopen("./xmlGenerados/$Folio.xml", "w+");
+    fwrite($Manejador, "Datos de Tarjeta de Verificacion\n");
+    fwrite($Manejador, "Folio:$Fila[0]\n"); 
+    fwrite($Manejador, "Vehiculo:$Fila[1]\n");
+    fwrite($Manejador, "LineaVerificacion:$Fila[2]\n");
+    fwrite($Manejador, "TecnicoVerificador:$Fila[3]\n");
+    fwrite($Manejador, "FechaExpedicion:$Fila[4]\n");
+    fwrite($Manejador, "Hora de Entrada:$Fila[5]\n");
+    fwrite($Manejador, "Hora de salida:$Fila[6]\n");
+    fwrite($Manejador, "Motivo:$Fila[7]\n");
+    fwrite($Manejador, "Folio Certificado:$Fila[8]\n");
+    fwrite($Manejador, "Semestre:$Fila[9]\n");
+    fwrite($Manejador, "Codigo Barras:$Fila[10]\n");
+    fwrite($Manejador, "NumeroCentro:$Fila[11]\n");
+    fwrite($Manejador, "Clase:$Fila[12]\n");
+    fwrite($Manejador, "TipoServicio:$Fila[13]\n");
+    fwrite($Manejador, "Uso:$Fila[14]\n");
+    fwrite($Manejador, "Anio:$Fila[15]\n");
+    fwrite($Manejador, "NoSerie:$Fila[16]\n");
+    fwrite($Manejador, "EstadoProcedencia:$Fila[17]\n");
+    fwrite($Manejador, "TipoCarroceria:$Fila[18]\n");
+    fwrite($Manejador, "Origen:$Fila[19]\n");
+    fwrite($Manejador, "Color:$Fila[20]\n");
+    fwrite($Manejador, "Cilindraje:$Fila[21]\n");
+    fwrite($Manejador, "Capacidad:$Fila[22]\n");
+    fwrite($Manejador, "NoPuerta:$Fila[23]\n");
+    fwrite($Manejador, "NoAsiento:$Fila[24]\n");
+    fwrite($Manejador, "Combustible:$Fila[25]\n");
+    fwrite($Manejador, "Transmision:$Fila[26]\n");
+    fwrite($Manejador, "NIV:$Fila[27]\n");
+    fwrite($Manejador, "Municipio:$Fila[28]\n");
+    fwrite($Manejador, "Entidad:$Fila[29]\n");
+    fwrite($Manejador, "Nombre:$Fila[30]\n");
+    fwrite($Manejador, "Marca:$Fila[31]\n");
+    fwrite($Manejador, "Sublinea:$Fila[32]\n");
+    fwrite($Manejador, "Placa:$Fila[33]\n");
+    
+    fclose($Manejador);
+    
 ?>

@@ -209,16 +209,16 @@ $pdf->SetFont('Arial', 'B', 4);
 $pdf->SetXY(37,31);
 $pdf->Cell(10,10,'RPA', 5, 1, 'R');
 
-$pdf->SetFont('Arial', 'B', 4);
-$pdf->SetXY(41,25);
+$pdf->SetFont('Arial', 'B', 3);
+$pdf->SetXY(42.5,25);
 $pdf->Cell(10,10,$Fila[17], 5, 1, 'R');
 
-$pdf->SetFont('Arial', 'B', 4);
-$pdf->SetXY(41,27);
-$pdf->Cell(10,10,$Fila[18], 5, 1, 'R'); 
+$pdf->SetFont('Arial', 'B', 3);
+$pdf->SetXY(43,27);
+$pdf->Cell(10,10,$Fila[2], 5, 1, 'R'); 
 
 $pdf->SetFont('Arial', 'B', 4);
-$pdf->SetXY(41.5,29);
+$pdf->SetXY(42.5,29);
 $pdf->Cell(10,10,$Fila[25], 5, 1, 'R'); 
 
 $pdf->SetFont('Arial', 'B', 4);
@@ -298,4 +298,35 @@ $ruta = "./pdfGenerados/$Folio.pdf";
 // Guarda el archivo en la ruta especificada
 $pdf->Output();
 $pdf->Output('F', $ruta);
+
+$Manejador = fopen("./xmlGenerados/$Folio.xml", "w+");
+fwrite($Manejador, "Datos de la TarjetaCirculacion\n");
+fwrite($Manejador, "Folio:$Fila[0]\n"); // Escribe la palabra texto dentro del archivo, reemplaza la linea con el texto ingresado
+fwrite($Manejador, "Propietario:$Fila[1]\n");
+fwrite($Manejador, "TipoServicio:$Fila[2]\n");
+fwrite($Manejador, "Vigencia:$Fila[3]\n");
+fwrite($Manejador, "Placa:$Fila[4]\n");
+fwrite($Manejador, "Holograma:$Fila[5]\n");
+fwrite($Manejador, "OficinaExp:$Fila[6]\n");
+fwrite($Manejador, "PlacaAnterior:$Fila[7]\n");
+fwrite($Manejador, "NoSerie:$Fila[8]\n");
+fwrite($Manejador, "Marca:$Fila[9]\n");
+fwrite($Manejador, "Anio:$Fila[10]\n");
+fwrite($Manejador, "Cilindraje:$Fila[11]\n");
+fwrite($Manejador, "Capacidad:$Fila[12]\n");
+fwrite($Manejador, "NoPuerta:$Fila[13]\n");
+fwrite($Manejador, "NoAsiento:$Fila[14]\n");
+fwrite($Manejador, "Combustible:$Fila[15]\n");
+fwrite($Manejador, "Transmision:$Fila[16]\n");
+fwrite($Manejador, "Clase:$Fila[17]\n");
+fwrite($Manejador, "TipoCarroceria:$Fila[18]\n");
+fwrite($Manejador, "NombreP:$Fila[19]\n");
+fwrite($Manejador, "Direccion:$Fila[20]\n");
+fwrite($Manejador, "RFC:$Fila[21]\n");
+fwrite($Manejador, "Localidad:$Fila[22]\n");
+fwrite($Manejador, "Origen:$Fila[23]\n");
+fwrite($Manejador, "Color:$Fila[24]\n");
+fwrite($Manejador, "Uso:$Fila[25]\n");
+fwrite($Manejador, "NIV:$Fila[26]\n");
+fclose($Manejador);
 ?>

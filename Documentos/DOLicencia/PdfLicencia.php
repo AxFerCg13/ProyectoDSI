@@ -6,7 +6,7 @@ require('fpdf.php');
 
 include("../Controlador.php");
 $Con=Conectar();
-$SQL = "SELECT * FROM V_DatosLicencia WHERE NumLicencia='$id'";
+$SQL = "SELECT * FROM V_DatosLicencia WHERE NumLicencia=$id";
 $ResulSet=Ejecutar($Con, $SQL);
 $Fila=mysqli_fetch_row($ResulSet);
 Desconectar($Con);
@@ -189,4 +189,23 @@ $ruta = "./pdfGenerados/$Folio.pdf";
 // Guarda el archivo en la ruta especificada
 $pdf->Output();
 $pdf->Output('F', $ruta);
+
+$Manejador = fopen("./xmlGenerados/$Folio.xml", "w+");
+fwrite($Manejador, "Datos de la licencia\n");
+fwrite($Manejador, "NumLicencia:$Fila[0]\n"); // Escribe la palabra texto dentro del archivo, reemplaza la linea con el texto ingresado
+fwrite($Manejador, "Nombre:$Fila[1]\n");
+fwrite($Manejador, "Observacion:$Fila[2]\n");
+fwrite($Manejador, "FechaNacimiento:$Fila[3]\n");
+fwrite($Manejador, "FechaExpedicion:$Fila[4]\n");
+fwrite($Manejador, "Vigencia:$Fila[5]\n");
+fwrite($Manejador, "Foto:$Fila[6]\n");
+fwrite($Manejador, "Tipo:$Fila[7]\n");
+fwrite($Manejador, "Firma:$Fila[8]\n");
+fwrite($Manejador, "Domicilio:$Fila[9]\n");
+fwrite($Manejador, "TipodeSangre:$Fila[10]\n");
+fwrite($Manejador, "Donador:$Fila[11]\n");
+fwrite($Manejador, "Restriccion:$Fila[12]\n");
+fwrite($Manejador, "NumEmergencia:$Fila[13]\n");
+fclose($Manejador);
+
 ?>
