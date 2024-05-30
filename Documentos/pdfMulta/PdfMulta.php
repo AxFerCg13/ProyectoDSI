@@ -107,9 +107,9 @@ $pdf->Cell(10, 2,'Nombre de la via', 0, 1, 'L');
 $pdf->SetXY(50.5, 58.1); 
 $pdf->Cell(10, 2,'Kilometro o numero', 'L', 1, 'L'); 
 $pdf->SetXY(78.5, 58.1); 
-$pdf->Cell(10, 2,'Direccion o sentido', 'L', 1, 'L'); 
+$pdf->Cell(10, 2,'Codigo postal', 'L', 1, 'L'); 
 $pdf->SetXY(5.5, 66.1); 
-$pdf->Cell(10, 2,'Referencia del lugar', 'L', 1, 'L'); 
+$pdf->Cell(10, 2,'Localidad', 'L', 1, 'L'); 
 $pdf->SetXY(78.5, 66.1); 
 $pdf->Cell(10, 2,'Municipio', 'L', 1, 'L'); 
 
@@ -193,7 +193,7 @@ $pdf->Cell(23, 8, 'B', 1, 'L');//Color (SI TABLA VEHICULOS)
 $pdf->SetXY(55.9, 134.7);
 $pdf->Cell(32, 8, 'BR', 1, 'L');//Numero tarjeta circulacion (SI TABLA TARJETAS)
 $pdf->SetXY(5.5, 142.9);
-$pdf->Cell(21, 8, 'BL', 1, 'L');//Numero de placas (SI TABLA TARJETAS)
+$pdf->Cell(21, 8, 'UAQ-563-H', 1, 'L');//Numero de placas (SI TABLA TARJETAS)
 $pdf->SetXY(26.7, 142.9);
 $pdf->Cell(36, 8, 'B', 1, 'L');//No. de serie del vehciulo (SI TABLA VEHICULOS)
 $pdf->SetXY(62.9, 142.9);
@@ -270,40 +270,10 @@ $pdf->Cell(105.8, 16, '', 'BLR', 1, 'L');
 $pdf->SetXY(5.5, 190.9);
 $pdf->Cell(105.8, 16, 0, 1, 'C');//Garantia retenida SI
 
-//------------------Bloque 6 Hecho de transito-------------------------
-$pdf->SetFont('Arial','B',6);
-$pdf->SetXY(5.5, 206);
-$pdf->Cell(4, 3.5,'6. ', 1, 1, 'L', true);
-$pdf->SetXY(9.5, 206);
-$pdf->Cell(101.8, 3.5,'Hecho de transito', 1, 1, 'L', true);
-
-$pdf->SetFont('Arial','',8);
-$pdf->SetXY(5.5, 209.7);
-$pdf->Cell(105.8, 10, '', 'BLR', 1, 'L');
-$pdf->SetXY(5.5, 209.7);
-$pdf->Cell(22, 10, 0, 1, 'L');//No. del Parte de Accidente (NO AÑADIR A MULTAS)
-$pdf->SetXY(27.5, 209.7);
-$pdf->Cell(22, 10, 0, 1, 'L');//Convenio (NO AÑADIR A MULTAS)
-$pdf->SetXY(49.5, 209.7);
-$pdf->Cell(22, 10, 0, 1, 'L');//Puesto a disposicion (NO AÑADIR A MULTAS)
-$pdf->SetXY(71.5, 209.7);
-$pdf->Cell(39, 10, 0, 1, 'L');//Deposito oficial (NO AÑADIR A MULTAS)
-
-$pdf->SetFont('Arial','',4.7);
-$pdf->SetXY(5.5, 209.7); 
-$pdf->Cell(10, 2,'No. del Parte del Accidente', 0, 1, 'L'); 
-$pdf->SetXY(27.5, 209.7); 
-$pdf->Cell(10, 2,'Convenio', 'L', 1, 'L'); 
-$pdf->SetXY(49.5, 209.7); 
-$pdf->Cell(10, 2,'Puesto a disposicion', 'L', 1, 'L'); 
-$pdf->SetXY(71.5, 209.7); 
-$pdf->Cell(10, 2,'Deposito oficial', 'L', 1, 'L'); 
-
-
 //------------------Bloque 7 Datos del Personal Opertaivo-------------------------
 $pdf->SetFont('Arial','B',6);
 $pdf->SetXY(5.5, 222.1);
-$pdf->Cell(4, 3.5,'7. ', 1, 1, 'L', true);
+$pdf->Cell(4, 3.5,'6. ', 1, 1, 'L', true);
 $pdf->SetXY(9.5, 222.1);
 $pdf->Cell(101.8, 3.5,'Datos del Personal Operativo', 1, 1, 'L', true);
 
@@ -336,7 +306,7 @@ $pdf->Cell(10, 2,'Firma', 0, 1, 'L');
 //----------------Bloque 8 Observaciones del Personal Operativo------------------
 $pdf->SetFont('Arial','B',6);
 $pdf->SetXY(5.5, 252.5);
-$pdf->Cell(4, 3.5,'8. ', 1, 1, 'L', true);
+$pdf->Cell(4, 3.5,'7. ', 1, 1, 'L', true);
 $pdf->SetXY(9.5, 252.5);
 $pdf->Cell(101.8, 3.5,'Observaciones del Personal Operativo', 1, 1, 'L', true);
 
@@ -353,7 +323,7 @@ $pdf->SetAutoPageBreak(false);
 //-----------------Bloque 9 Calificacion de la boleta--------------------------
 $pdf->SetFont('Arial','B',6);
 $pdf->SetXY(5.5, 277.5);
-$pdf->Cell(4, 3.5,'9. ', 1, 1, 'L', true);
+$pdf->Cell(4, 3.5,'8. ', 1, 1, 'L', true);
 $pdf->SetXY(9.5, 277.5);
 $pdf->Cell(101.8, 3.5,'Calificacion de la boleta de infraccion', 1, 1, 'L', true);
 
@@ -367,23 +337,6 @@ $pdf->SetXY(5.5, 281.2);
 $pdf->Cell(105.8, 6, '', 'B', 0 , 'L');
 $pdf->SetAutoPageBreak(false);
 
-
-//-----------------Bloque 10 Observaciones del Conductor--------------------------
-$pdf->SetFont('Arial','B',6);
-$pdf->SetXY(5.5, 295.2);
-$pdf->Cell(4, 3.5,'10. ', 1, 1, 'L', true);
-$pdf->SetXY(9.5, 295.2);
-$pdf->Cell(101.8, 3.5,'Observaciones del conductor', 1, 1, 'L', true);
-
-$pdf->SetFont('Arial','',8);
-$pdf->SetXY(5.5, 298.9);
-$pdf->Cell(105.8, 12, '', 'BLR', 1, 'L');
-$pdf->SetAutoPageBreak(true);
-$pdf->SetXY(5.5, 299.2);
-$pdf->MultiCell(105.8, 6, 0 , 'L');//Observaciones del conductor (NO AGREGAR A MULTAS OBSERVACIONES CONDUCTOR)
-$pdf->SetXY(5.5, 299.2);
-$pdf->Cell(105.8, 6, '', 'B', 0 , 'L');
-$pdf->SetAutoPageBreak(false);
 
 
 
