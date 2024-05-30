@@ -1,9 +1,20 @@
+<?php
+
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+$varssesion = $_SESSION['usuario'];
+// Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
+  die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Tarjetas de Circulación</title>
+    <title>Formulario de Centro de Verificación</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -55,37 +66,19 @@
 </head>
 <body>
     <div class="form-container">
-        <h3>Formulario de Tarjetas de Circulación</h3>
-        <form method="post" action="ITarjetasCirculacion.php">
-            <label for="Folio">Folio</label>
-            <input type="number" id="Folio" name="Folio">
+        <h3>Formulario de Centro de Verificación</h3>
+        <form method="get" action="ICentroVerificacion.php">
+            <label for="Num_Centro">Número de Centro</label>
+            <input type="number" id="Num_Centro" name="Num_Centro">
             <br>
-            <label for="Propietario">Propietario</label>
-            <input type="text" id="Propietario" name="Propietario">
+            <label for="Municipio">Municipio</label>
+            <input type="text" id="Municipio" name="Municipio">
             <br>
-            <label for="Tipo_Servicio">Tipo de Servicio</label>
-            <input type="text" id="Tipo_Servicio" name="Tipo_Servicio">
+            <label for="Entidad">Entidad</label>
+            <input type="text" id="Entidad" name="Entidad">
             <br>
-            <label for="Vigencia">Vigencia</label>
-            <input type="text" id="Vigencia" name="Vigencia">
-            <br>
-            <label for="Placa">Placa</label>
-            <input type="text" id="Placa" name="Placa">
-            <br>
-            <label for="Holograma">Holograma</label>
-            <input type="text" id="Holograma" name="Holograma">
-            <br>
-            <label for="Oficina_Expedidora">Oficina Expedidora</label>
-            <input type="text" id="Oficina_Expedidora" name="Oficina_Expedidora">
-            <br>
-            <label for="Placa_Anterior">Placa Anterior</label>
-            <input type="text" id="Placa_Anterior" name="Placa_Anterior">
-            <br>
-            <label for="ID_Vehiculo">ID del Vehículo</label>
-            <input type="number" id="ID_Vehiculo" name="ID_Vehiculo">
-            <br>
-            <label for="ID_Propietario">ID del Propietario</label>
-            <input type="number" id="ID_Propietario" name="ID_Propietario">
+            <label for="Nombre">Nombre</label>
+            <input type="text" id="Nombre" name="Nombre">
             <br>
             <input type="submit">
         </form>

@@ -1,9 +1,20 @@
+<?php
+
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+$varssesion = $_SESSION['usuario'];
+// Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
+  die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Licencias</title>
+    <title>Formulario de Tarjetas de Circulación</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -31,8 +42,7 @@
             font-size: 16px;
         }
         .form-container input[type="text"],
-        .form-container input[type="number"],
-        .form-container input[type="date"] {
+        .form-container input[type="number"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -56,31 +66,37 @@
 </head>
 <body>
     <div class="form-container">
-        <h3>Formulario de Licencias</h3>
-        <form method="get" action="ILicencias.php">
-            <label for="ID">ID</label>
-            <input type="number" id="ID" name="ID">
+        <h3>Formulario de Tarjetas de Circulación</h3>
+        <form method="post" action="ITarjetasCirculacion.php">
+            <label for="Folio">Folio</label>
+            <input type="number" id="Folio" name="Folio">
             <br>
-            <label for="Fecha_Expedicion">Fecha de expedición</label>
-            <input type="date" id="Fecha_Expedicion" name="Fecha_Expedicion">
+            <label for="Propietario">Propietario</label>
+            <input type="text" id="Propietario" name="Propietario">
+            <br>
+            <label for="Tipo_Servicio">Tipo de Servicio</label>
+            <input type="text" id="Tipo_Servicio" name="Tipo_Servicio">
             <br>
             <label for="Vigencia">Vigencia</label>
-            <input type="date" id="Vigencia" name="Vigencia">
+            <input type="text" id="Vigencia" name="Vigencia">
             <br>
-            <label for="Tipo">Tipo</label>
-            <input type="text" id="Tipo" name="Tipo">
+            <label for="Placa">Placa</label>
+            <input type="text" id="Placa" name="Placa">
             <br>
-            <label for="Num_Emergencia">Número de Emergencia</label>
-            <input type="number" id="Num_Emergencia" name="Num_Emergencia">
+            <label for="Holograma">Holograma</label>
+            <input type="text" id="Holograma" name="Holograma">
             <br>
-            <label for="Observacion">Observación</label>
-            <input type="text" id="Observacion" name="Observacion">
+            <label for="Oficina_Expedidora">Oficina Expedidora</label>
+            <input type="text" id="Oficina_Expedidora" name="Oficina_Expedidora">
             <br>
-            <label for="Restriccion">Restricción</label>
-            <input type="text" id="Restriccion" name="Restriccion">
+            <label for="Placa_Anterior">Placa Anterior</label>
+            <input type="text" id="Placa_Anterior" name="Placa_Anterior">
             <br>
-            <label for="ID_Conductor">ID del Conductor</label>
-            <input type="number" id="ID_Conductor" name="ID_Conductor">
+            <label for="ID_Vehiculo">ID del Vehículo</label>
+            <input type="number" id="ID_Vehiculo" name="ID_Vehiculo">
+            <br>
+            <label for="ID_Propietario">ID del Propietario</label>
+            <input type="number" id="ID_Propietario" name="ID_Propietario">
             <br>
             <input type="submit">
         </form>

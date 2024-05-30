@@ -1,3 +1,14 @@
+<?php
+
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+$varssesion = $_SESSION['usuario'];
+// Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
+  die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -127,7 +138,7 @@
               <li><a href="./Consultar/CVerificaciones.php">Verificaciones</a></li>
             </ul>
           </li>
-          <button id="cerrarSesion">Cerrar Sesión</button>
+          <a href="../cerrar_sesion.php"><button id="cerrarSesion" >Cerrar Sesión</button></a>
         </ul>
       </div>
     </nav>

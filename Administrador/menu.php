@@ -1,17 +1,16 @@
 <?php
-/*
-// NO BORRAR
+
 session_start(); // Asegúrate de iniciar la sesión al comienzo del script
 $varssesion = $_SESSION['usuario'];
 // Verifica si la variable de sesión está establecida
 if ($varssesion == NULL || $varssesion == '') {
-  echo 'Usted no tiene autorización';
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
   die();
 }
 
 // Si la variable de sesión está establecida, muestra el contenido de la página
 echo "Bienvenido, " . $_SESSION['usuario'];
-// Resto del contenido de la página*/
+// Resto del contenido de la página
 ?>
 
 <!DOCTYPE html>
@@ -139,17 +138,17 @@ echo "Bienvenido, " . $_SESSION['usuario'];
             <input type="checkbox" id="insertar">
             <label for="insertar">Insertar</label>
             <ul>
-              <li><a href="./Insertar/Agentes.html">Agentes</a></li>
-              <li><a href="./Insertar/CentroVerificacion.html">Centro de Verificación</a></li>
-              <li><a href="./Insertar/Conductores.html">Conductores</a></li>
-              <li><a href="./Insertar/Direcciones.html">Direcciones</a></li>
-              <li><a href="./Insertar/Licencias.html">Licencias</a></li>
-              <li><a href="./Insertar/Multas.html">Multas</a></li>
-              <li><a href="./Insertar/Propietarios.html">Propietarios</a></li>
-              <li><a href="./Insertar/TarjetasCirculacion.html">Tarjetas de circulación</a></li>
-              <li><a href="./Insertar/Tenencias.html">Tenencias</a></li>
-              <li><a href="./Insertar/Vehiculos.html">Vehículos</a></li>
-              <li><a href="./Insertar/Verificaciones.html">Verificaciones</a></li>
+              <li><a href="./Insertar/Agentes.php">Agentes</a></li>
+              <li><a href="./Insertar/CentroVerificacion.php">Centro de Verificación</a></li>
+              <li><a href="./Insertar/Conductores.php">Conductores</a></li>
+              <li><a href="./Insertar/Direcciones.php">Direcciones</a></li>
+              <li><a href="./Insertar/Licencias.php">Licencias</a></li>
+              <li><a href="./Insertar/Multas.php">Multas</a></li>
+              <li><a href="./Insertar/Propietarios.php">Propietarios</a></li>
+              <li><a href="./Insertar/TarjetasCirculacion.php">Tarjetas de circulación</a></li>
+              <li><a href="./Insertar/Tenencias.php">Tenencias</a></li>
+              <li><a href="./Insertar/Vehiculos.php">Vehículos</a></li>
+              <li><a href="./Insertar/Verificaciones.php">Verificaciones</a></li>
             </ul>
           </li>
           <li>
@@ -195,7 +194,7 @@ echo "Bienvenido, " . $_SESSION['usuario'];
               <li><a href="./Generar/GenerarTarjetaVerificacion.php">Tarjetas de Verificación</a></li>
             </ul>
           </li>
-          <button id="cerrarSesion">Cerrar Sesión</button>
+          <a href="../cerrar_sesion.php"><button id="cerrarSesion" >Cerrar Sesión</button></a>
         </ul>
       </div>
     </nav>

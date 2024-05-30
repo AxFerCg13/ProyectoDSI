@@ -1,9 +1,20 @@
+<?php
+
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+$varssesion = $_SESSION['usuario'];
+// Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
+  die();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Propietarios</title>
+    <title>Formulario de Licencias</title>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -31,7 +42,8 @@
             font-size: 16px;
         }
         .form-container input[type="text"],
-        .form-container input[type="number"] {
+        .form-container input[type="number"],
+        .form-container input[type="date"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -55,22 +67,31 @@
 </head>
 <body>
     <div class="form-container">
-        <h3>Formulario de Propietarios</h3>
-        <form method="post" action="IPoropitarios.php">
-            <label for="Id_Propietarios">Id Propietarios</label>
-            <input type="number" id="Id_Propietarios" name="Id_Propietarios">
+        <h3>Formulario de Licencias</h3>
+        <form method="get" action="ILicencias.php">
+            <label for="ID">ID</label>
+            <input type="number" id="ID" name="ID">
             <br>
-            <label for="Nombre">Nombre</label>
-            <input type="text" id="Nombre" name="Nombre">
+            <label for="Fecha_Expedicion">Fecha de expedición</label>
+            <input type="date" id="Fecha_Expedicion" name="Fecha_Expedicion">
             <br>
-            <label for="Direccion">Dirección</label>
-            <input type="text" id="Direccion" name="Direccion">
+            <label for="Vigencia">Vigencia</label>
+            <input type="date" id="Vigencia" name="Vigencia">
             <br>
-            <label for="RFC">RFC</label>
-            <input type="text" id="RFC" name="RFC">
+            <label for="Tipo">Tipo</label>
+            <input type="text" id="Tipo" name="Tipo">
             <br>
-            <label for="Id_Direccion">Id Dirección</label>
-            <input type="number" id="Id_Direccion" name="Id_Direccion">
+            <label for="Num_Emergencia">Número de Emergencia</label>
+            <input type="number" id="Num_Emergencia" name="Num_Emergencia">
+            <br>
+            <label for="Observacion">Observación</label>
+            <input type="text" id="Observacion" name="Observacion">
+            <br>
+            <label for="Restriccion">Restricción</label>
+            <input type="text" id="Restriccion" name="Restriccion">
+            <br>
+            <label for="ID_Conductor">ID del Conductor</label>
+            <input type="number" id="ID_Conductor" name="ID_Conductor">
             <br>
             <input type="submit">
         </form>
