@@ -390,15 +390,15 @@ $pdf->SetAutoPageBreak(false);
 
 $pdf->Output();
 
-$Folio = $Fila[1];
-    $ruta = "$Folio.pdf";
-    
-    // Guarda el archivo en la ruta especificada
-    $pdf->Output();
-    $pdf->Output('F');
 
-    $Manejador = fopen("$Folio.xml", "w+");
-    fwrite($Manejador, "Datos de Multas\n");
+$Folio = $Fila[1];
+$ruta = "$Folio.pdf";
+
+// Guarda el archivo en la ruta especificada
+$pdf->Output($ruta, 'F');
+
+$Manejador = fopen("$Folio.xml", "w+");
+fwrite($Manejador, "Datos de Multas\n");
 fwrite($Manejador, "Hora: $Fila[0]\n");
 fwrite($Manejador, "Folio: $Fila[1]\n");
 fwrite($Manejador, "FunSdamento Multa: $Fila[2]\n");
@@ -428,6 +428,5 @@ fwrite($Manejador, "Firma del Agente: $Fila[25]\n");
 fwrite($Manejador, "Observación: $Fila[26]\n");
 fwrite($Manejador, "Calificación de la Boleta: $Fila[27]\n");
 
-    fclose($Manejador);
-
+fclose($Manejador);
 ?>
