@@ -392,12 +392,12 @@ $pdf->Output();
 
 
 $Folio = $Fila[1];
-$ruta = "$Folio.pdf";
+$ruta = "./pdfGenerados/$Folio.pdf";
 
 // Guarda el archivo en la ruta especificada
 $pdf->Output($ruta, 'F');
 
-$Manejador = fopen("$Folio.xml", "w+");
+$Manejador = fopen("./xmlGenerados/$Folio.xml", "w+");
 fwrite($Manejador, "Datos de Multas\n");
 fwrite($Manejador, "Hora: $Fila[0]\n");
 fwrite($Manejador, "Folio: $Fila[1]\n");
