@@ -14,7 +14,7 @@ if(isset($_FILES['key']) && $_FILES['key']['error'] === UPLOAD_ERR_OK) {
 
     // Elimina el archivo temporal
     unlink($tmpFilePath);
-    print($Key);
+    #print($Key);
 } else {
     // Manejo de error si no se envía el archivo o hay algún problema en la subida
     echo "Error al cargar el archivo de clave.";
@@ -28,14 +28,14 @@ $SQL="SELECT * FROM Cuentas WHERE UserName='$UserName'"; // Aquí se manda llama
 $ResultSet=Ejecutar($Con, $SQL);
 $Existe=mysqli_num_rows($ResultSet);
 if($Existe==1) {
-    print("El usuario existe");
+    #print("El usuario existe");
     $Fila=mysqli_fetch_row($ResultSet); // Se extrae la fila de datos de la consulta
     if($Fila[3]==1) {
-        print("Cuenta Activada");
+    #    print("Cuenta Activada");
         if($Fila[4]==0) {
-            print("Cuenta NO Bloqueada");
+     #       print("Cuenta NO Bloqueada");
             if ($Password==$Fila[1] && $Key==$Fila[6]) {
-                print("Contraseña y key correctas");
+      #          print("Contraseña y key correctas");
                 if($Fila[2]=='A') {
                     session_start();
                     $_SESSION['usuario'] = $UserName;
@@ -65,7 +65,7 @@ if($Existe==1) {
             print("Cuenta Bloqueada - Contacta al administrador");
         }
     } else {
-        print("Cuenta NO Activada - ");
+        print("Cuenta NO Activada - Contacta al administrador");
     }
 } else {
     print("El usuario no existe");
