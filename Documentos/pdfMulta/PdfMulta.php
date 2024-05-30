@@ -2,6 +2,7 @@
 $id=$_POST['id'];
 
 //OBTENER LOS DATOS DESDE LA VISTA
+$id=$_POST['id'];
 include ("Controlador.php");
 
 $Con = Conectar();
