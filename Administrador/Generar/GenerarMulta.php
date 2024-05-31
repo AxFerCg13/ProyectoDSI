@@ -1,5 +1,26 @@
 <?php
+session_start(); // Asegúrate de iniciar la sesión al comienzo del script
+$varssesion = $_SESSION['usuario'];
+// Verifica si la variable de sesión está establecida
+if ($varssesion == NULL || $varssesion == '') {
+  echo 'Usted no tiene autorización - Ingrese mediante el Login';
+  die();
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Verificar si se recibió un ID de tarjeta de circulación
+    if (isset($_POST['id']) && !empty($_POST['id'])) {
+        $id = $_POST['id'];
 
+        // Aquí va el código para generar el PDF de la tarjeta de circulación utilizando el ID recibido
+
+        // Redireccionar al usuario de vuelta al formulario después de generar el PDF
+        header("Location: ./GenerarTarjetaCirculacion.php?success=true");
+        exit();
+    } else {
+        // Si no se recibió un ID de tarjeta de circulación, mostrar un mensaje de error
+        echo "Error: Debes proporcionar un ID de tarjeta de circulación válido.";
+    }
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar si se recibió un ID de multa
     if (isset($_POST['id']) && !empty($_POST['id'])) {
